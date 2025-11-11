@@ -54,4 +54,3 @@ CREATE TABLE Recipe (
   servings INTEGER
 );
 Then build out Ingredient, Instruction, User, and Collection.
-<img width="815" height="1323" alt="image" src="https://github.com/user-attachments/assets/80c28b53-01fb-4acd-9c2d-46dda5b5ee1c" />
