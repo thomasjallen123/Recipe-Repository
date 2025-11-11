@@ -7,11 +7,11 @@ export const useRecipeStore = defineStore('recipes', {
     recipes: [],
     loading: false,
     error: null,
-    savedRecipeIds: [] // <-- tracks saved IDs
+    savedRecipeIds: [] // <-- tracks saved recipe IDs
   }),
 
   actions: {
-    // Load saved state from localStorage
+    // Load saved IDs from localStorage
     initSavedState() {
       const saved = localStorage.getItem('savedRecipeIds')
       if (saved) {
@@ -71,6 +71,7 @@ export const useRecipeStore = defineStore('recipes', {
     }
   },
 
+  // Auto-init + default search
   onStoreSetup() {
     this.initSavedState()
     this.search({ ingredient: 'chicken' })
