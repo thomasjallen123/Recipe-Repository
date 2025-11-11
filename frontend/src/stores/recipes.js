@@ -1,27 +1,56 @@
 // src/stores/recipes.js
 import { defineStore } from 'pinia'
-import api from '@/services/api'
 import { mockRecipes } from '@/services/mockData.js'
 
 export const useRecipeStore = defineStore('recipes', {
   state: () => ({
     recipes: [],
     loading: false,
-    error: null
+    error: null,
+    savedRecipeIds: [] // <-- tracks saved IDs
   }),
+
   actions: {
+    // Load saved state from localStorage
+    initSavedState() {
+      const saved = localStorage.getItem('savedRecipeIds')
+      if (saved) {
+        this.savedRecipeIds = JSON.parse(saved)
+        mockRecipes.forEach(r => {
+          r.isSaved = this.savedRecipeIds.includes(r.id)
+        })
+      }
+    },
+
+    // Toggle save
+    toggleSave(recipe) {
+      const idx = this.savedRecipeIds.indexOf(recipe.id)
+      if (idx > -1) {
+        this.savedRecipeIds.splice(idx, 1)
+        recipe.isSaved = false
+      } else {
+        this.savedRecipeIds.push(recipe.id)
+        recipe.isSaved = true
+      }
+      localStorage.setItem('savedRecipeIds', JSON.stringify(this.savedRecipeIds))
+    },
+
+    // Search
     async search(filters = {}) {
       this.loading = true
       this.error = null
+
+      if (this.savedRecipeIds.length === 0) this.initSavedState()
+
       try {
-        // MOCK MODE — USE MOCK DATA
         let results = [...mockRecipes]
 
         if (filters.ingredient) {
           const term = filters.ingredient.toLowerCase()
-          results = results.filter(r =>
-            r.ingredients.some(i => i.name.toLowerCase().includes(term)) ||
-            r.title.toLowerCase().includes(term)
+          results = results.filter(
+            r =>
+              r.title.toLowerCase().includes(term) ||
+              r.ingredients.some(i => i.name.toLowerCase().includes(term))
           )
         }
         if (filters.cuisine) {
@@ -31,11 +60,8 @@ export const useRecipeStore = defineStore('recipes', {
           results = results.filter(r => r.cookTime <= filters.maxTime)
         }
 
-        // Fake delay
-        await new Promise(resolve => setTimeout(resolve, 600))
-
+        await new Promise(r => setTimeout(r, 600))
         this.recipes = results
-        console.log('LOADED RECIPES:', this.recipes.length)  // ← CHECK CONSOLE
       } catch (err) {
         this.error = 'Search failed'
         console.error(err)
@@ -43,5 +69,10 @@ export const useRecipeStore = defineStore('recipes', {
         this.loading = false
       }
     }
+  },
+
+  onStoreSetup() {
+    this.initSavedState()
+    this.search({ ingredient: 'chicken' })
   }
 })

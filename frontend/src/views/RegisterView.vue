@@ -1,7 +1,7 @@
 <template>
-  <div class="min-h-screen flex items-center justify-center bg-gray-50 px-4">
+  <div class="min-h-screen flex items-center justify-center px-4">
     <div class="w-full max-w-md">
-      <div class="bg-white p-8 rounded-xl shadow-lg">
+      <div class="bg-white/90 p-8 rounded-xl shadow-lg backdrop-blur-sm">
         <h2 class="text-3xl font-bold text-center text-indigo-600 mb-6">Register</h2>
         <form @submit.prevent="register" class="space-y-4">
           <input
@@ -55,3 +55,4 @@ const register = () => {
   router.push('/login')
 }
 </script>
+
