@@ -1,10 +1,28 @@
-/* src/index.css */
+/* src/index.css — VIBRANT + ADVANCED ANIMATIONS EXPANDED */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Add a class for your page background */
-.bg-page {
-  background-color: #FAF0E6;
+@layer base {
+  html {
+    line-height: 1.6;
+  }
+  *::selection {
+    background-color: #00D4AA;
+    color: #FFF8E7;
+  }
+}
+
+.bg-vibrant {
+  background: linear-gradient(to bottom right, #FF6B35 0%, #F7931E 100%);
+}
+
+.transition-glow {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* RESPONSIVE TEXT */
+.text-hero {
+  font-size: clamp(2.5rem, 8vw, 9rem);
 }
 

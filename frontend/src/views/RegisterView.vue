@@ -1,40 +1,46 @@
 <template>
-  <div class="min-h-screen flex items-center justify-center px-4">
+  <div class="min-h-screen flex items-center justify-center px-4 py-12 bg-gradient-to-br from-orange-400/20 via-red-400/20 to-yellow-500/20 animate-pageIn">
     <div class="w-full max-w-md">
-      <div class="bg-white/90 p-8 rounded-xl shadow-lg backdrop-blur-sm">
-        <h2 class="text-3xl font-bold text-center text-indigo-600 mb-6">Register</h2>
-        <form @submit.prevent="register" class="space-y-4">
-          <input
-            v-model="username"
-            type="text"
-            placeholder="Username"
-            required
-            class="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-indigo-500"
-          />
-          <input
-            v-model="email"
-            type="email"
-            placeholder="Email"
-            required
-            class="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-indigo-500"
-          />
-          <input
-            v-model="password"
-            type="password"
-            placeholder="Password"
-            required
-            class="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-indigo-500"
-          />
+      <div class="bg-gradient-to-br from-yellow-50/90 to-orange-50/90 p-10 rounded-3xl shadow-2xl backdrop-blur-md border border-teal-200/50 animate-pulse-slow">
+        <h2 class="text-4xl font-black text-center bg-gradient-to-r from-teal-600 to-lime-600 bg-clip-text text-transparent mb-8 leading-tight typewriter">Join Us</h2>
+        <form @submit.prevent="register" class="space-y-6">
+          <div>
+            <input
+              v-model="username"
+              type="text"
+              placeholder="Username"
+              required
+              class="w-full px-5 py-4 border-2 border-teal-200 rounded-2xl focus:ring-4 focus:ring-teal-200/50 focus:border-teal-500 focus:outline-none transition-all text-lg placeholder-orange-400 bg-white/50 animate-slideIn"
+            />
+          </div>
+          <div class="animate-slideIn delay-1">
+            <input
+              v-model="email"
+              type="email"
+              placeholder="Email"
+              required
+              class="w-full px-5 py-4 border-2 border-teal-200 rounded-2xl focus:ring-4 focus:ring-teal-200/50 focus:border-teal-500 focus:outline-none transition-all text-lg placeholder-orange-400 bg-white/50"
+            />
+          </div>
+          <div class="animate-slideIn delay-2">
+            <input
+              v-model="password"
+              type="password"
+              placeholder="Password"
+              required
+              class="w-full px-5 py-4 border-2 border-teal-200 rounded-2xl focus:ring-4 focus:ring-teal-200/50 focus:border-teal-500 focus:outline-none transition-all text-lg placeholder-orange-400 bg-white/50"
+            />
+          </div>
           <button
             type="submit"
-            class="w-full py-3 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition font-medium"
+            class="w-full py-4 bg-gradient-to-r from-teal-500 to-lime-500 text-white rounded-2xl hover:from-teal-600 hover:to-lime-600 transition-all font-black text-lg shadow-lg hover:shadow-teal-500/50 transform hover:scale-105 bounce-hover"
           >
             Create Account
           </button>
         </form>
-        <p class="mt-4 text-center text-sm text-gray-600">
+        <p class="mt-6 text-center text-sm text-orange-800 font-semibold animate-slideIn delay-3">
           Already have an account?
-          <router-link to="/login" class="text-indigo-600 hover:underline">Login</router-link>
+          <router-link to="/login" class="bg-gradient-to-r from-teal-600 to-lime-600 bg-clip-text text-transparent font-bold transition-all hover:from-red-600 hover:to-yellow-600">Sign in</router-link>
         </p>
       </div>
     </div>
@@ -55,4 +61,13 @@ const register = () => {
   router.push('/login')
 }
 </script>
+
+<style scoped>
+.animate-pulse-slow {
+  animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+.delay-1 { animation-delay: 0.2s; }
+.delay-2 { animation-delay: 0.4s; }
+.delay-3 { animation-delay: 0.6s; }
+</style>
 
