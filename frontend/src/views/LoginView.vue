@@ -1,7 +1,7 @@
 <template>
-  <div class="min-h-screen flex items-center justify-center bg-gray-50 px-4">
+  <div class="min-h-screen flex items-center justify-center px-4">
     <div class="w-full max-w-md">
-      <div class="bg-white p-8 rounded-xl shadow-lg">
+      <div class="bg-white/90 p-8 rounded-xl shadow-lg backdrop-blur-sm">
         <h2 class="text-3xl font-bold text-center text-indigo-600 mb-6">Login</h2>
         <form @submit.prevent="login" class="space-y-4">
           <input
@@ -43,8 +43,8 @@ const password = ref('')
 const router = useRouter()
 
 const login = () => {
-  // Mock login — replace with real API later
   alert(`Logging in: ${username.value}`)
   router.push('/search')
 }
 </script>
+

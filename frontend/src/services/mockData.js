@@ -20,7 +20,7 @@ export const mockRecipes = [
       { name: "black pepper", quantity: 1, unit: "tsp" }
     ],
     instructions: "1. Boil pasta in salted water.\n2. Fry pancetta until crispy.\n3. Mix eggs + cheese.\n4. Toss hot pasta with pancetta and egg mixture.\n5. Serve immediately.",
-    isSaved: true
+    isSaved: false
   },
   {
     id: 2,
@@ -56,7 +56,7 @@ export const mockRecipes = [
       { name: "garlic", quantity: 2, unit: "cloves" }
     ],
     instructions: "Cook pasta. Melt butter, add cream and garlic. Stir in cheese until thick. Toss with pasta.",
-    isSaved: true
+    isSaved: false
   },
 
   // CHICKEN
@@ -76,7 +76,7 @@ export const mockRecipes = [
       { name: "garam masala", quantity: 2, unit: "tbsp" }
     ],
     instructions: "Marinate chicken in yogurt. Grill. Make creamy tomato sauce. Combine.",
-    isSaved: true
+    isSaved: false
   },
   {
     id: 5,
@@ -113,7 +113,7 @@ export const mockRecipes = [
       { name: "tomato", quantity: 2, unit: "" }
     ],
     instructions: "Brown beef with spices. Fill shells with toppings.",
-    isSaved: true
+    isSaved: false
   },
 
   // RICE
@@ -136,7 +136,7 @@ export const mockRecipes = [
     isSaved: false
   },
 
-  // MORE REAL ONES
+  // PAD THAI
   {
     id: 8,
     title: "Pad Thai",
@@ -153,10 +153,10 @@ export const mockRecipes = [
       { name: "tamarind paste", quantity: 3, unit: "tbsp" }
     ],
     instructions: "Soak noodles. Stir-fry with shrimp and sauce. Top with peanuts.",
-    isSaved: true
+    isSaved: false
   },
 
-  // GENERIC BUT SEARCHABLE
+  // GENERIC BUT SEARCHABLE (292 more)
   ...Array(292).fill(null).map((_, i) => {
     const titles = [
       "Garlic Butter Shrimp Pasta", "Spicy Beef Stir Fry", "Tomato Basil Soup",
@@ -180,7 +180,7 @@ export const mockRecipes = [
         { name: "salt", quantity: 1, unit: "tsp" }
       ],
       instructions: `Cook ${ingredients[i % 10]} with love. Season well. Serve hot.`,
-      isSaved: Math.random() > 0.7
+      isSaved: false
     }
   })
 ]
