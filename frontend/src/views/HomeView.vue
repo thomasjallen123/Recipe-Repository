@@ -15,7 +15,7 @@
         </router-link>
         <router-link 
           to="/register" 
-          class="px-8 py-4 bg-lime-600 text-white rounded-xl font-bold hover:bg-lime-700 transition text-lg"
+          class="px-8 py-4 bg-teal-600 text-white rounded-xl font-bold hover:bg-teal-700 transition text-lg"
         >
           Register
         </router-link>

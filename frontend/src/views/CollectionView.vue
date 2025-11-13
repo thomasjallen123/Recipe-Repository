@@ -16,7 +16,7 @@
 
     <div v-else-if="favorites.length === 0" class="text-center py-32">
       <p class="text-3xl sm:text-4xl text-gray-600 mb-8 font-medium">Your collection is empty</p>
-      <router-link :to="{ name: 'Search' }" class="inline-block px-12 py-5 bg-gradient-to-r from-indigo-600 to-purple-600 text-white text-xl font-black rounded-3xl shadow-2xl hover:shadow-indigo-500/50 transform hover:scale-105 transition-all duration-300">
+      <router-link :to="{ name: 'Search' }" class="inline-block px-12 py-5 bg-gradient-to-r from-teal-600 to-teal-600 text-white text-xl font-black rounded-3xl shadow-2xl hover:shadow-teal-500/50 transform hover:scale-105 transition-all duration-300">
         Explore Recipes
       </router-link>
     </div>
@@ -39,7 +39,7 @@
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
           </svg>
         </button>
-        <h3 class="text-xl font-bold text-indigo-700">{{ recipe.title }}</h3>
+        <h3 class="text-xl font-bold text-teal-700">{{ recipe.title }}</h3>
         <p class="text-gray-600">{{ recipe.cuisine }} • {{ recipe.cookTime }} min</p>
       </div>
     </div>
