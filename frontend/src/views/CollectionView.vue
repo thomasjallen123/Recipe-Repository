@@ -2,7 +2,7 @@
 <template>
   <main class="min-h-screen bg-gradient-to-br from-amber-50/50 to-yellow-50/50 container mx-auto px-4 sm:px-6 py-12 max-w-7xl relative z-10">
     <header class="text-center mb-12">
-      <h1 class="text-5xl sm:text-6xl font-black text-indigo-700 leading-tight animate-fadeIn" aria-label="My Favorite Recipes">
+      <h1 class="text-5xl sm:text-6xl font-black text-teal-700 leading-tight animate-fadeIn" aria-label="My Favorite Recipes">
         My Favorites
       </h1>
     </header>
