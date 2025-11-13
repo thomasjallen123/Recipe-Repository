@@ -1,111 +1,149 @@
+<!-- src/views/RecipeDetailView.vue -->
 <template>
-  <div class="min-h-screen container mx-auto px-4 py-12 relative z-10 animate-pageIn">
-    <button @click="$router.back()" class="mb-8 inline-flex items-center bg-gradient-to-r from-teal-500 to-lime-500 text-white font-semibold text-xl hover:from-teal-600 hover:to-lime-600 transition-all px-6 py-3 rounded-xl shadow-lg bounce-hover">
+  <main class="min-h-screen bg-gradient-to-br from-teal-50 to-lime-50 p-6">
+    <button @click="$router.back()" class="mb-6 inline-flex items-center gap-2 text-teal-700 font-bold hover:text-teal-900 transition">
       ← Back to Search
     </button>
 
-    <div v-if="!recipe" class="text-center py-32 text-3xl text-orange-800 font-semibold">
-      Recipe not found
-    </div>
-
-    <div v-else class="bg-gradient-to-br from-yellow-50/95 to-orange-50/95 backdrop-blur-md rounded-3xl shadow-2xl overflow-hidden border border-teal-200/50 animate-slideIn">
-      <img :src="recipe.image" class="w-full h-96 object-cover transition-transform duration-700 hover:scale-105" alt="Recipe" />
-
-      <div class="p-12">
-        <div class="flex justify-between items-start mb-10">
-          <div class="flex-1">
-            <h1 class="text-6xl font-black bg-gradient-to-r from-orange-800 to-red-600 bg-clip-text text-transparent mb-4 leading-tight typewriter">{{ recipe.title }}</h1>
-            <p class="text-2xl text-teal-700 font-semibold animate-slideIn delay-1">
-              {{ recipe.cuisine }} • {{ recipe.cookTime }} min • Serves {{ servings }}
-            </p>
-          </div>
-
-          <button @click="toggleSave" class="hover:scale-110 transition-transform p-3 rounded-full bg-gradient-to-r from-red-500/20 to-yellow-500/20 shadow-lg border border-red-200/50 animate-pulse">
-            <svg v-if="recipe.isSaved" style="width: 48px; height: 48px;" class="text-red-500" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
-            </svg>
-            <svg v-else style="width: 48px; height: 48px;" class="text-teal-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
-            </svg>
-          </button>
-        </div>
-
-        <div class="mb-12 p-8 bg-gradient-to-r from-teal-50/80 to-lime-50/80 rounded-3xl border border-teal-200/50 shadow-inner animate-slideIn delay-2">
-          <ServingScaler v-model:servings="servings" :original-servings="originalServings" />
-        </div>
-
-        <h2 class="text-4xl font-black mb-8 bg-gradient-to-r from-teal-600 to-lime-600 bg-clip-text text-transparent animate-slideIn delay-3">Ingredients</h2>
-        <ul class="space-y-4 text-lg bg-teal-50/60 p-8 rounded-3xl border border-teal-200/50 animate-cascade">
-          <li v-for="(ing, idx) in scaledIngredients" :key="ing.name" class="flex items-center py-3 px-4 rounded-2xl bg-white/50 hover:bg-lime-100/50 transition-all animate-slideIn" :style="{ animationDelay: `${idx * 0.1}s` }">
-            <span class="font-bold text-teal-600 w-32 text-xl">{{ ing.scaled }} {{ ing.unit || '' }}</span>
-            <span class="text-orange-800 font-semibold flex-1">{{ ing.name }}</span>
-          </li>
-        </ul>
-
-        <h2 class="text-4xl font-black mt-16 mb-8 bg-gradient-to-r from-teal-600 to-lime-600 bg-clip-text text-transparent animate-slideIn delay-4">Instructions</h2>
-        <div class="text-lg text-orange-800 leading-relaxed whitespace-pre-line bg-teal-50/60 p-8 rounded-3xl border border-teal-200/50 animate-typewriter">
-          <div class="space-y-6">
-            <p v-for="(step, index) in recipe.instructions.split('\n\n')" :key="index" class="py-4 px-6 bg-white/50 rounded-2xl shadow-sm animate-slideIn" :style="{ animationDelay: `${(index + 5) * 0.2}s` }">{{ step }}</p>
-          </div>
-        </div>
+    <div v-if="loading" class="max-w-4xl mx-auto space-y-6">
+      <div class="bg-white/80 backdrop-blur p-8 rounded-2xl shadow animate-pulse">
+        <div class="h-10 bg-gray-300 rounded w-3/4 mb-4"></div>
+        <div class="h-6 bg-gray-300 rounded w-1/2"></div>
       </div>
     </div>
-  </div>
+
+    <div v-else-if="error" class="text-center py-20">
+      <h2 class="text-3xl font-black text-red-600 mb-4">Recipe Not Found</h2>
+      <p class="text-lg text-gray-700 mb-6">{{ error }}</p>
+      <button @click="fetchRecipe" class="px-8 py-3 bg-red-600 text-white rounded-xl hover:bg-red-700 transition font-bold">
+        Try Again
+      </button>
+    </div>
+
+    <article v-else class="max-w-4xl mx-auto bg-white/90 backdrop-blur-md p-8 rounded-3xl shadow-2xl">
+      <header class="mb-8">
+        <h1 class="text-5xl font-black text-teal-700 mb-4 leading-tight">{{ recipe.title }}</h1>
+        <p class="text-xl text-gray-700">{{ recipe.cuisine }} • {{ recipe.cookTime }} min • Serves {{ servings }}</p>
+      </header>
+
+      <!-- Serving Scaler -->
+      <div class="mb-12 p-6 bg-teal-50 rounded-2xl border border-teal-200">
+        <label class="block font-bold text-teal-700 mb-3">Servings:</label>
+        <div class="flex items-center gap-4">
+          <button @click="servings--" :disabled="servings <= 1" class="w-10 h-10 bg-teal-600 text-white rounded-full font-bold hover:bg-teal-700 disabled:opacity-50">−</button>
+          <input v-model.number="servings" type="number" min="1" max="20" class="w-20 px-3 py-2 text-center text-xl font-bold border-2 border-teal-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-teal-400" />
+          <button @click="servings++" class="w-10 h-10 bg-teal-600 text-white rounded-full font-bold hover:bg-teal-700">+</button>
+          <span class="ml-4 text-lg font-semibold text-teal-600">({{ scaleFactor.toFixed(1) }}x)</span>
+        </div>
+      </div>
+
+      <!-- Ingredients -->
+      <section class="mb-12">
+        <h2 class="text-3xl font-black text-teal-700 mb-6">Ingredients</h2>
+        <ul class="space-y-3">
+          <li v-for="ing in scaledIngredients" :key="ing.name" class="flex justify-between items-center bg-teal-50/70 p-4 rounded-xl">
+            <span class="font-bold text-teal-700">{{ ing.scaled }} {{ ing.unit || '' }}</span>
+            <span class="text-gray-800 font-medium">{{ ing.name }}</span>
+          </li>
+        </ul>
+      </section>
+
+      <!-- Instructions -->
+      <section>
+        <h2 class="text-3xl font-black text-teal-700 mb-6">Instructions</h2>
+        <div class="prose prose-lg max-w-none text-gray-800 whitespace-pre-line">
+          {{ recipe.instructions }}
+        </div>
+      </section>
+    </article>
+  </main>
 </template>
 
 <script setup>
 import { ref, computed, onMounted } from 'vue'
 import { useRoute } from 'vue-router'
-import { mockRecipes } from '@/services/mockData.js'
-import { useRecipeStore } from '@/stores/recipes'
-import ServingScaler from '@/components/ServingScaler.vue'
+import { formatQuantity } from '@/services/formatQuantity'
 
 const route = useRoute()
-const recipeStore = useRecipeStore()
 const recipe = ref(null)
 const servings = ref(4)
 const originalServings = ref(4)
+const loading = ref(true)
+const error = ref(null)
 
-onMounted(() => {
-  const id = parseInt(route.params.id)
-  recipe.value = mockRecipes.find(r => r.id === id)
-  if (recipe.value) {
-    originalServings.value = recipe.value.servings || 4
-    servings.value = originalServings.value
+// ALL 3 RECIPES
+const mockRecipes = {
+  1: {
+    id: 1,
+    title: "Spicy Chicken Curry",
+    cuisine: "Indian",
+    cookTime: 45,
+    servings: 4,
+    ingredients: [
+      { name: "chicken", quantity: 500, unit: "g" },
+      { name: "curry powder", quantity: 2, unit: "tbsp" },
+      { name: "coconut milk", quantity: 400, unit: "ml" },
+      { name: "onion", quantity: 1 },
+    ],
+    instructions: "1. Brown chicken.\n2. Add onion and curry.\n3. Pour in coconut milk.\n4. Simmer 30 min.\n5. Serve with rice."
+  },
+  2: {
+    id: 2,
+    title: "Beef Tacos",
+    cuisine: "Mexican",
+    cookTime: 20,
+    servings: 4,
+    ingredients: [
+      { name: "ground beef", quantity: 400, unit: "g" },
+      { name: "taco shells", quantity: 8 },
+      { name: "lettuce", quantity: 1, unit: "cup" },
+      { name: "cheese", quantity: 100, unit: "g" },
+    ],
+    instructions: "1. Cook beef with spices.\n2. Warm shells.\n3. Fill with beef, lettuce, cheese.\n4. Add salsa."
+  },
+  3: {
+    id: 3,
+    title: "Pasta Carbonara",
+    cuisine: "Italian",
+    cookTime: 25,
+    servings: 4,
+    ingredients: [
+      { name: "spaghetti", quantity: 400, unit: "g" },
+      { name: "eggs", quantity: 4 },
+      { name: "pancetta", quantity: 200, unit: "g" },
+      { name: "parmesan", quantity: 100, unit: "g" },
+    ],
+    instructions: "1. Boil pasta.\n2. Fry pancetta.\n3. Mix eggs + cheese.\n4. Toss off heat.\n5. Serve hot."
   }
-})
+}
 
+const fetchRecipe = async () => {
+  loading.value = true
+  error.value = null
+  try {
+    await new Promise(r => setTimeout(r, 400))
+    const id = parseInt(route.params.id)
+    const data = mockRecipes[id]
+    if (!data) throw new Error("Recipe not found")
+    recipe.value = data
+    originalServings.value = data.servings
+    servings.value = originalServings.value
+  } catch (err) {
+    error.value = err.message
+  } finally {
+    loading.value = false
+  }
+}
+
+const scaleFactor = computed(() => servings.value / originalServings.value)
 const scaledIngredients = computed(() => {
   if (!recipe.value) return []
-  const scale = servings.value / originalServings.value
-  return recipe.value.ingredients.map(i => ({
-    ...i,
-    scaled: (i.quantity * scale).toFixed(1).replace(/\.0$/, '')
+  return recipe.value.ingredients.map(ing => ({
+    ...ing,
+    scaled: formatQuantity(ing.quantity * scaleFactor.value)
   }))
 })
 
-const toggleSave = () => {
-  if (recipe.value) {
-    recipeStore.toggleSave(recipe.value)
-  }
-}
+onMounted(fetchRecipe)
 </script>
-
-<style scoped>
-.animate-cascade {
-  --cascade-delay: 0s;
-}
-.delay-1 { animation-delay: 0.2s; }
-.delay-2 { animation-delay: 0.4s; }
-.delay-3 { animation-delay: 0.6s; }
-.delay-4 { animation-delay: 0.8s; }
-.animate-typewriter {
-  overflow: hidden;
-  animation: typewriter-scroll 2s steps(40, end) forwards;
-}
-@keyframes typewriter-scroll {
-  from { max-height: 0; }
-  to { max-height: 100vh; }
-}
-</style>
 
