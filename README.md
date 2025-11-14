@@ -16,7 +16,7 @@ Milestones (mapped from Database Roadmap steps)
    - Recipe, Ingredient, Instruction (Step), User, Collection, and join tables
      have been identified and documented.
 
-2. Define relationships — IN PROGRESS
+2. Define relationships — Done
    - Establishing one-to-many and many-to-many relationships (Recipe ↔
      Ingredient via RecipeIngredient, Recipe → Instruction, User → Collection,
      Collection → Recipe).
@@ -26,11 +26,11 @@ Milestones (mapped from Database Roadmap steps)
    - ERD sketch and a starter SQLite schema are being refined. Working through
      types, uniqueness constraints, and normalization choices.
 
-4. Normalize tables and finalize constraints — NEXT
+4. Normalize tables and finalize constraints — IN PROGRESS
    - Remove duplication, finalize the Ingredient master list strategy, add
      indexes, and lock down uniqueness and FK constraints.
 
-5. Implement schema, migrations, and tests — NEXT
+5. Implement schema, migrations, and tests — IN PROGESS
    - Add migrations (Alembic / Flask-Migrate), seed scripts, and unit tests
      for insertion and retrieval. Add transactional insertion from scraper.
 
