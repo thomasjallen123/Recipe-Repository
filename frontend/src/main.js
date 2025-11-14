@@ -1,13 +1,13 @@
 // src/main.js
 import { createApp } from 'vue'
-import { createPinia } from 'pinia'  // ← THIS WAS MISSING
+import { createPinia } from 'pinia'
 import App from './App.vue'
 import router from './router'
-import './index.css'
+import '@/assets/css/app.css'  // Global styles + Tailwind
 
 const app = createApp(App)
-const pinia = createPinia()  // ← CREATE PINIA
+const pinia = createPinia()
 
-app.use(pinia)   // ← USE IT
+app.use(pinia)
 app.use(router)
 app.mount('#app')
