@@ -30,7 +30,7 @@ Milestones (mapped from Database Roadmap steps)
    - Remove duplication, finalize the Ingredient master list strategy, add
      indexes, and lock down uniqueness and FK constraints.
 
-5. Implement schema, migrations, and tests — COMPLETE
+5. Implement schema, migrations, and tests — PENDING
    - Add migrations (Alembic / Flask-Migrate), seed scripts, and unit tests
      for insertion and retrieval. Add transactional insertion from scraper.
 
