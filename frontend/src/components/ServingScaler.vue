@@ -1,12 +1,12 @@
-<!-- src/components/ServingScaler.vue -->
+<!-- src/components/ServingScaler.vue — VIBRANT GRADIENT + BOUNCE BUTTONS -->
 <template>
-  <div class="flex items-center gap-4 bg-gradient-to-r from-indigo-50 to-purple-50 p-4 rounded-2xl shadow-md">
-    <span class="font-bold text-indigo-700">Servings:</span>
+  <div class="flex items-center gap-4 bg-gradient-to-r from-teal-50/80 to-lime-50/80 p-6 rounded-3xl shadow-xl border border-teal-200/50 backdrop-blur-sm">
+    <span class="font-black text-xl text-teal-700">Servings:</span>
     
     <button 
       @click="servings--"
       :disabled="servings <= 1"
-      class="w-10 h-10 rounded-full bg-indigo-600 text-white font-bold hover:bg-indigo-700 disabled:opacity-50 disabled:cursor-not-allowed transition"
+      class="w-12 h-12 rounded-full bg-gradient-to-r from-teal-500 to-lime-500 text-white font-bold shadow-lg hover:shadow-teal-500/50 bounce-hover disabled:opacity-50 disabled:cursor-not-allowed disabled:shadow-none transition-all"
     >
       −
     </button>
@@ -15,17 +15,17 @@
       v-model.number="servings" 
       type="number" 
       min="1"
-      class="w-20 px-3 py-2 text-center text-xl font-bold border-2 border-indigo-300 rounded-lg focus:border-indigo-600 focus:outline-none"
+      class="w-24 px-4 py-3 text-center text-2xl font-black border-2 border-teal-300 rounded-xl focus:border-lime-500 focus:ring-4 focus:ring-lime-200/50 focus:outline-none shadow-inner transition-all bg-yellow-50/50"
     />
 
     <button 
       @click="servings++"
-      class="w-10 h-10 rounded-full bg-indigo-600 text-white font-bold hover:bg-indigo-700 transition"
+      class="w-12 h-12 rounded-full bg-gradient-to-r from-teal-500 to-lime-500 text-white font-bold shadow-lg hover:shadow-teal-500/50 bounce-hover transition-all"
     >
       +
     </button>
 
-    <span class="text-lg font-medium text-purple-700">
+    <span class="text-xl font-semibold text-red-600">
       ({{ scaleFactor.toFixed(2) }}x)
     </span>
   </div>
@@ -34,7 +34,6 @@
 <script setup>
 import { computed } from 'vue'
 
-// THIS LINE WAS MISSING — THIS IS THE ENTIRE FIX
 const props = defineProps({
   originalServings: {
     type: Number,

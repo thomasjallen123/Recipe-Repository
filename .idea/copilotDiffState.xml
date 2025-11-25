@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CopilotDiffPersistence">
+    <option name="pendingDiffs">
+      <map>
+        <entry key="$PROJECT_DIR$/backend/app/collections.py">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/backend/app/collections.py" />
+              <option name="updatedContent" value="# Collection routes and logic&#10;from flask import Blueprint, jsonify&#10;from flask_login import login_required, current_user&#10;from .models import Recipe&#10;&#10;collections_bp = Blueprint('collections', __name__)&#10;&#10;@collections_bp.route('/', methods=['GET'])&#10;@login_required&#10;def get_collections():&#10;    saved_recipes = Recipe.query.filter(Recipe.users.any(id=current_user.id)).all()&#10;    return jsonify({'recipes': [r.to_dict() for r in saved_recipes]}), 200" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

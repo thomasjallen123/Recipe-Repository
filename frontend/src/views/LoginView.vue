@@ -1,36 +1,32 @@
 <template>
-  <div class="min-h-screen flex items-center justify-center bg-gray-50 px-4">
-    <div class="w-full max-w-md">
-      <div class="bg-white p-8 rounded-xl shadow-lg">
-        <h2 class="text-3xl font-bold text-center text-indigo-600 mb-6">Login</h2>
-        <form @submit.prevent="login" class="space-y-4">
-          <input
-            v-model="username"
-            type="text"
-            placeholder="Username"
-            required
-            class="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
-          />
-          <input
-            v-model="password"
-            type="password"
-            placeholder="Password"
-            required
-            class="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
-          />
-          <button
-            type="submit"
-            class="w-full py-3 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition font-medium"
-          >
-            Login
-          </button>
-        </form>
-        <p class="mt-4 text-center text-sm text-gray-600">
-          Don't have an account?
-          <router-link to="/register" class="text-indigo-600 hover:underline">Register</router-link>
-        </p>
-      </div>
-    </div>
+  <div class="max-w-md mx-auto bg-white p-8 rounded-2xl shadow-xl">
+    <h2 class="text-3xl font-bold text-center text-teal-700 mb-6">Login</h2>
+    <form @submit.prevent="login" class="space-y-4">
+      <input
+        v-model="username"
+        type="text"
+        placeholder="Username"
+        class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-teal-500"
+        required
+      />
+      <input
+        v-model="password"
+        type="password"
+        placeholder="Password"
+        class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-teal-500"
+        required
+      />
+      <button
+        type="submit"
+        class="w-full bg-teal-600 text-white py-3 rounded-xl font-bold hover:bg-teal-700 transition"
+      >
+        Sign In
+      </button>
+    </form>
+    <p class="text-center mt-4 text-sm">
+      No account?
+      <router-link to="/register" class="text-teal-600 font-bold">Register</router-link>
+    </p>
   </div>
 </template>
 
@@ -43,8 +39,8 @@ const password = ref('')
 const router = useRouter()
 
 const login = () => {
-  // Mock login — replace with real API later
-  alert(`Logging in: ${username.value}`)
+  // Mock login success
   router.push('/search')
 }
 </script>
+
