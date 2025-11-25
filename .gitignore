@@ -1,1 +1,13 @@
-.vercel
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# Local runs & artifacts
+logs/
+output/
+*.sqlite
+*.db
+
+# OS
+.DS_Store
