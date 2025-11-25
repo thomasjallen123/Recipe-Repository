@@ -1,7 +1,10 @@
+<!-- src/App.vue -->
 <template>
-  <router-view />
+  <div class="min-h-screen bg-gradient-to-br from-teal-50 to-lime-50 flex items-center justify-center p-4">
+    <router-view />
+  </div>
 </template>
 
 <script setup>
-// Global layout will go here later (nav, header, etc.)
+// Nothing here
 </script>
