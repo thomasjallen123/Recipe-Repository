@@ -1,0 +1,14 @@
+python3 -m venv recipe
+# The backslash '\' is used for paths in PowerShell/Windows
+.\recipe\Scripts\Activate.ps1
+
+#Bash
+recipe\Scripts\activate
+
+#Bash - MacOS/Github
+recipe/bin/activate
+
+pip3 install fastapi
+pip3 install uvicorn
+pip3 install mysql-connector-python
+pip3 install sqlalchemy
