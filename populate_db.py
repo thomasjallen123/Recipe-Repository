@@ -233,7 +233,7 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Populate the database with recipe data from a JSON file.')
     
     # Add argument for JSON file path
-    parser.add_argument('--json', type=str, default=r'C:\Users\Michael\Documents\Academic Library\Academic Course work\Active\CMSC 495\output\Spicy_Chicken-Tortilla_Chip_Casserole.json',help='Path to the JSON file containing recipe data.')
+    parser.add_argument('--json', type=str, default=r'output\Spicy_Chicken-Tortilla_Chip_Casserole.json',help='Path to the JSON file containing recipe data.')
     
     #Parse the arguments
     args=parser.parse_args()
@@ -245,3 +245,4 @@ if __name__ == '__main__':
     
     logging.info("Invoking main function to populate database.")
     main(args.json)
+
