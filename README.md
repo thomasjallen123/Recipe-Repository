@@ -108,6 +108,13 @@ How to review
 2. Review new SQL or migration files when they appear in PRs.
 3. Run the test suite and local migrations to validate schema changes.
 
+--------------
+Run populate_db.py as a module.
+
+Instead of running the file by its path (python backend\app\populate_db.py), use the -m flag. The name is the full path to the module using dots instead of slashes.
+
+python -m backend.app.populate_db --json "C:/path/to/your/recipe.json"
+
 Suggested commit message
 ------------------------
 
