@@ -1,6 +1,8 @@
 #Import for local logic 
 import logging
 import json
+import re
+from sqlalchemy import inspect #for checking existing records
 
 
 #relative import - when running as part of the package
@@ -28,6 +30,30 @@ def fromScrape_json(json_file_path):
  
 
 #----Configuration---
+def parse_instructions(instruction_string):
+    ''''
+    Parses a single instruction string into individual steps.
+    
+    '''
+
+    logging.info("starting instruction parsing.")
+
+    if not instruction_string:
+        logging.warning("Instruction string is empty or malformed.")
+        return None
+
+    # Split after lowercase+period
+    chunks = re.split(r'(?<=[a-z]\.)', instruction_string)
+
+    # Clean up whitespace
+    steps = [chunk.strip() for chunk in chunks if chunk.strip()]
+
+    # Count steps
+    num_steps = len(steps)
+
+    return {"steps": steps, "step_number": num_steps}
+
+
 def parse_ingredient(ingredient_string):
 
         logging.info(f"Parsing ingredient string: {ingredient_string}")
@@ -101,18 +127,26 @@ def main(json_file_path):
             logging.error("Failed to retrieve data from JSON file.")
             return
 
+        # Ensure the database tables are created
+        inspector = inspect(db.engine)
 
+        if not inspector.has_table("recipe"):
+            logging.info("Creating database tables...")
+            db.create_all()
+            logging.info("Database tables created.")
+        else:
+            logging.info("Database tables already exist.")
+        
         #Check if the recipe already exists to avoid duplicates
-        existing_recipe = Recipe.query.filter_by(source_url=scraped_data['source_url']).first()
+        existing_recipe = Recipe.query.filter_by(title=scraped_data['title']).first()
 
         if existing_recipe:
             logging.info(f"Recipe already exists in the database: {existing_recipe.title}")
-        else:
-        
+        else:       
 
             try:
 
-                logging.info(f"Scraped data for recipe: {scraped_data['title']}")
+                logging.info(f"Scraped data for recipe: {scraped_data.get('title')}")
 
                 if not scraped_data:
                     logging.error("No data scraped from the provided URL.")
@@ -121,19 +155,19 @@ def main(json_file_path):
                     logging.info("Scraped data successfully retrieved: {scraped_data}.get('title')")
 
                     #create recipe object
-
+                    #using get method to avoid key errors
                     new_recipe = Recipe(
                         title=scraped_data['title'],
-                        source_url=scraped_data['source_url'],
-                        source_website=scraped_data['source_website'],
-                        prep_time_minutes=scraped_data['prep_time'],
-                        cook_time_minutes=scraped_data['cook_time'],
-                        total_time_minutes=scraped_data['total_time'],
-                        servings=scraped_data['servings'],
-                        difficulty=scraped_data['difficulty'],
-                        cuisine=scraped_data['cuisine_type'],
-                        image_url=scraped_data['image_url'],
-                        scraped_at=scraped_data['scraped_at']
+                        source_url=scraped_data.get('source_url'),
+                        source_website=scraped_data.get('host'),
+                        prep_time_minutes=scraped_data.get('prep_time'),
+                        cook_time_minutes=scraped_data.get('cook_time'),
+                        total_time_minutes=scraped_data.get('total_time'),
+                        servings=scraped_data.get('servings'),
+                        difficulty=scraped_data.get('difficulty'),
+                        cuisine=scraped_data.get('cuisine_type'),
+                        image_url=scraped_data.get('image'),
+                        scraped_at=scraped_data.get('scraped_at')
                     )
 
                 #ingredient parsing and creation
@@ -162,15 +196,19 @@ def main(json_file_path):
                         else:
                             logging.warning(f"Failed to parse ingredient: {parsed_ing}")
 
-                #instruction parsing and creation    
+                #instruction parsing and creation   
+                # TODO: Add step number handling 
                 if 'instructions' in scraped_data:
-                    for step in scraped_data['instructions']:
-                        instruction_obj = Instruction(
-                            step_text=step,
-                            recipe=new_recipe
+
+                    parsed_steps = parse_instructions(scraped_data['instructions'])
+
+                    instruction_obj = Instruction(
+                            step_number=parsed_steps['step_number'],
+                            step_text=scraped_data['instructions'] #input full text for now
+                            #recipe=new_recipe
                         )
-                        new_recipe.instructions.append(instruction_obj)
-                        logging.info(f"Added instruction: {step}")
+                    new_recipe.instructions.append(instruction_obj)
+                    logging.info(f"Added all instruction: {parsed_steps['step_number']} steps")
 
                 db.session.add(new_recipe)
 
@@ -193,8 +231,6 @@ if __name__ == '__main__':
 
     #Create the argument parser
     parser = argparse.ArgumentParser(description='Populate the database with recipe data from a JSON file.')
-
-    #TODO: replace default path to a flexible option
     
     # Add argument for JSON file path
     parser.add_argument('--json', type=str, default=r'C:\Users\Michael\Documents\Academic Library\Academic Course work\Active\CMSC 495\output\Spicy_Chicken-Tortilla_Chip_Casserole.json',help='Path to the JSON file containing recipe data.')
