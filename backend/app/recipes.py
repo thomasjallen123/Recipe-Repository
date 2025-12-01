@@ -18,7 +18,7 @@ def get_recipes():
     if cuisine:
         query = query.filter(Recipe.cuisine == cuisine)
     if max_time:
-        query = query.filter(Recipe.cook_time <= max_time)
+    query = query.filter(Recipe.total_time_minutes <= max_time)
 
     recipes = query.all()
     return jsonify({'recipes': [r.to_dict() for r in recipes]}), 200
