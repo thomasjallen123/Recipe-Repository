@@ -2,7 +2,10 @@
 import logging
 import json
 import re
+import glob #for file pattern matching
+import os #for path handling
 from sqlalchemy import inspect #for checking existing records
+
 
 
 #relative import - when running as part of the package
@@ -63,10 +66,8 @@ def parse_ingredient(ingredient_string):
         This is a simplified example. A robust solution would use a dedicated
         library (like ingredient-parser) or advanced regular expressions.
         """
-        # Example: "2 1/2 cups all-purpose flour, sifted"
-        parts = ingredient_string.split()
-
-        if not parts:
+        
+        if not ingredient_string:
             logging.warning("Ingredient string is empty or malformed.")
             return None
         
@@ -77,18 +78,22 @@ def parse_ingredient(ingredient_string):
 
         #Simple check for qunatity (numeric or fraction)
 
-        if parts[0].replace('/', '').replace('.', '').isdigit():
-            quantity = parts.pop(0)
-            
-            #handle cases like "1 1/2"
-            if parts and parts[0].replace('/', '').replace('.', '').isdigit() and len(parts) > 1 and parts[1].replace('/', '').replace('.', '').isdigit():
-                quantity += " " + parts.pop(0)
+        quantity_match = re.match(r'^(\d+\s\d+/\d+|\d+/\d+|\d+\.\d+|\d+)', ingredient_string)
+        quantity = quantity_match.group(0) if quantity_match else ""
 
+
+        #Remove Qunatity from String
+        remaining_string = ingredient_string[len(quantity):].strip()
+
+        #Split remaining string into words
+        parts = remaining_string.split()
 
         #simple check for a unit
         if parts and len(parts) > 1:  # simplistic check for unit length
         
-            common_units = ['cup', 'cups', 'tbsp', 'tsp', 'tablespoon', 'teaspoon', 'oz', 'lb', 'g', 'kg', 'ml', 'l', 'pinch', 'clove', 'cloves']
+            common_units = ['cup', 'cups', 'tbsp', 'tsp', 'ounce', 'tablespoon', 'tablespoons', 'teaspoon', 
+                            'teaspoons', 'oz', 'lb', 'g', 'kg', 'ml', 'l', 'pinch', 'clove', 'cloves']
+            
             if parts[0].lower() in common_units:
                 unit = parts.pop(0)
 
@@ -102,6 +107,7 @@ def main(json_file_path):
     """
     Main function to populate the database from a JSON file.
     """  
+
     # 2. Create an instance of your entire application / API linking to the app factory
     logging.info("Creating application instance.")
     app = create_app()
@@ -137,6 +143,14 @@ def main(json_file_path):
         else:
             logging.info("Database tables already exist.")
         
+        #Print current databse path for debugging
+        logging.info(f"Database path: {db.engine.url}")
+
+        #Print absolute file path for SQLite databases
+        if db.engine.url.drivername == 'sqlite':
+            abs_path = os.path.abspath(db.engine.url.database)
+            logging.info(f"Absolute database file path: {abs_path}")
+            
         #Check if the recipe already exists to avoid duplicates
         existing_recipe = Recipe.query.filter_by(title=scraped_data['title']).first()
 
@@ -204,9 +218,10 @@ def main(json_file_path):
 
                     instruction_obj = Instruction(
                             step_number=parsed_steps['step_number'],
-                            step_text=scraped_data['instructions'] #input full text for now
-                            #recipe=new_recipe
-                        )
+                            step_text=scraped_data['instructions'], #input full text for now
+                            recipe=new_recipe
+                    )
+
                     new_recipe.instructions.append(instruction_obj)
                     logging.info(f"Added all instruction: {parsed_steps['step_number']} steps")
 
@@ -222,6 +237,25 @@ def main(json_file_path):
                 db.session.rollback()
                 raise e
 
+def collect_json_path(args):
+    """
+    Collects JSON file paths based on command-line arguments.
+    """
+
+    json_file_paths = []
+
+    if args.json:
+        json_file_paths.append(args.json)
+    elif args.json_dir:
+        #Use glob to find all matching files
+        pattern = args.json_dir
+        matched_files = glob.glob(pattern)
+        json_file_paths.extend(matched_files)
+    else:
+        logging.error("No JSON file path or directory provided.")
+        exit(1)
+    
+    return json_file_paths
 
 
 if __name__ == '__main__':
@@ -232,16 +266,38 @@ if __name__ == '__main__':
     #Create the argument parser
     parser = argparse.ArgumentParser(description='Populate the database with recipe data from a JSON file.')
     
+    #Option to specify JSON file path
     # Add argument for JSON file path
-    parser.add_argument('--json', type=str, default=r'C:\Users\Michael\Documents\Academic Library\Academic Course work\Active\CMSC 495\output\Spicy_Chicken-Tortilla_Chip_Casserole.json',help='Path to the JSON file containing recipe data.')
+    parser.add_argument('--json', type=str, default=r'output/example.json', help='Path to the JSON file containing recipe data.')
     
+    #Option to specify directory containing JSON files
+    parser.add_argument('--json_dir', type=str, default='*.json', help='File pattern to match JSON files in the specified directory.')
+    
+    #Option to reset the database before populating
+    parser.add_argument('--reset_db', action='store_true', help='Reset the database before populating.')
+
     #Parse the arguments
     args=parser.parse_args()
+
+
+    #Reset the database if specified
+    if args.reset_db:
+        logging.info("Resetting the database as per command-line argument.")
+        app = create_app()
+        with app.app_context():
+            db.drop_all()
+            db.create_all()
+            logging.info("Database has been reset.")
+            exit(0) #Exit after resetting the database
 
     #pass the  JSON file path to the population function
     logging.info(f"Using JSON file path: {args.json}")
 
-    json_file_path = args.json
+    json_file_paths = collect_json_path(args)
+
+
     
     logging.info("Invoking main function to populate database.")
-    main(args.json)
+    for json_file_path in json_file_paths:
+        logging.info(f"Processing JSON file: {json_file_path}")
+        main(json_file_path)
