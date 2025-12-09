@@ -6,7 +6,7 @@ import axios from 'axios'
 const api = axios.create({
   baseURL: import.meta.env.DEV 
     ? 'http://127.0.0.1:5000/api' 
-    : 'https://Recipe-Repository-4.onrender.com/api',  // ← YOUR LIVE BACKEND
+    : 'https://recipe-repository-5.onrender.com/api',  // ← YOUR LIVE BACKEND
   timeout: 10000,
   withCredentials: true,
 })
