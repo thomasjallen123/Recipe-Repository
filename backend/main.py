@@ -1,10 +1,12 @@
 """Main application entry point"""
 from app import create_app, db
 from flask import jsonify, send_from_directory
+from flask_cors import CORS
 import os
 
 app = create_app()
 
+CORS(app, supports_credentials=True, origins=["*"])
 
 @app.route('/')
 def index():
