@@ -1,0 +1,48 @@
+{
+  "title": "Vegetarian Korean Noodles (Japchae)",
+  "source_url": "https://www.foodnetwork.com/recipes/giada-de-laurentiis/vegetarian-korean-noodles-japchae-2572546",
+  "host": "foodnetwork.co.uk",
+  "image": "https://food.fnr.sndimg.com/content/dam/images/food/fullset/2014/10/29/0/GH0703_Vegetarian-Korean-Noodles_s4x3.jpg.rend.hgtvcom.1280.1280.suffix/1414609565312.webp",
+  "yields": "6 servings",
+  "total_minutes": 40,
+  "prep_minutes": null,
+  "cook_minutes": 35,
+  "ingredients": [
+    "1/4 cup sugar",
+    "1/3 cup tamari or soy sauce",
+    "1 tablespoon rice wine vinegar",
+    "1 1/2 teaspoons sesame oil",
+    "1 1/2 teaspoons grated ginger",
+    "Kosher salt",
+    "12 ounces sweet potato vermicelli, cellophane noodles or angel hair pasta",
+    "2 tablespoons grapeseed oil",
+    "4 ounces oyster mushrooms, sliced into 1-inch pieces",
+    "4 ounces shiitake mushrooms, stems removed, caps quartered",
+    "1 large shallot, chopped",
+    "1 red bell pepper, cut into 1/4-inch strips",
+    "2 cloves garlic, peeled and coarsely chopped",
+    "3 scallions, cut into 1/2-inch pieces",
+    "6 leaves kale, cut into 1-inch pieces",
+    "Sesame seeds, toasted, for garnish, optional"
+  ],
+  "steps": [
+    "For the sauce: Combine the sugar, tamari, rice wine vinegar, sesame oil and ginger in a small bowl. Whisk until the sugar is dissolved. Set aside.",
+    "For the noodles: Bring a large pot of salted water to a boil. Add the noodles and stir to help submerge them. Cook until the noodles are just barely cooked, 6 to 8 minutes. Drain and rinse with cold water. Using kitchen shears or a clean pair of scissors, cut the noodles into approximately 8-inch lengths. Set aside.",
+    "Heat the grapeseed oil in a large skillet over high heat. Add the oyster and shiitake mushrooms and cook, stirring often with a wooden spoon, for about 5 minutes, or until the mushrooms are beginning to brown. Add the shallots and 1/4 teaspoon salt and cook until fragrant, another 2 minutes. Add the red pepper, garlic and scallions to the pan, reduce the heat to medium-high and cook for an additional 3 minutes, or until the peppers are beginning to soften. Add the kale and the cooked noodles and saute another 3 minutes, stirring often to coat the noodles in the oil and to wilt the kale. Add the sauce and toss to coat. Top with sesame seeds if desired."
+  ],
+  "author": "Giada De Laurentiis",
+  "cuisine": null,
+  "category": "main-dish",
+  "nutrients": {
+    "servingSize": "1 of 6 servings",
+    "calories": "343",
+    "fatContent": "7g",
+    "saturatedFatContent": "1g",
+    "carbohydrateContent": "60g",
+    "fiberContent": "5g",
+    "sugarContent": "13g",
+    "proteinContent": "11g",
+    "cholesterolContent": "0mg",
+    "sodiumContent": "798mg"
+  }
+}

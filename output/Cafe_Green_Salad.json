@@ -1,0 +1,36 @@
+{
+  "title": "Cafe Green Salad",
+  "source_url": "https://www.foodnetwork.com/recipes/melissa-darabian/cafe-green-salad-recipe-1948349",
+  "host": "foodnetwork.co.uk",
+  "image": "https://food.fnr.sndimg.com/content/dam/images/food/fullset/2009/11/6/0/0132672_Cafe-Green-Salad-01_s4x3.jpg.rend.hgtvcom.1280.1280.suffix/1388513071980.webp",
+  "yields": "4 servings",
+  "total_minutes": 10,
+  "prep_minutes": 10,
+  "cook_minutes": null,
+  "ingredients": [
+    "1 garlic clove, sliced in 1/2",
+    "1 teaspoon Dijon mustard",
+    "1 tablespoon balsamic vinegar",
+    "Small splash soy sauce",
+    "Salt and freshly ground black pepper",
+    "3 tablespoons olive oil"
+  ],
+  "steps": [
+    "3 cups mixed greens, the darker the better (not iceberg)",
+    "Rub the inside of a large wooden bowl with the garlic clove and then either discard it or save it for another use. Put the mustard in the bowl and whisk in the balsamic vinegar and soy sauce (a French secret!) vigorously for about 10 seconds to get a creamy consistency. Season with salt and pepper, to taste. Drizzle in the olive oil as slowly as possible with 1 hand while whisking as quickly as possible with the other hand to emulsify. Lay the salad greens on top of the dressing and toss just before serving."
+  ],
+  "author": "Melissa d'Arabian",
+  "cuisine": null,
+  "category": "side-dish",
+  "nutrients": {
+    "calories": "103 calorie",
+    "fatContent": "10 grams",
+    "saturatedFatContent": "1.5 grams",
+    "cholesterolContent": "0 milligrams",
+    "sodiumContent": "156 milligrams",
+    "carbohydrateContent": "2 grams",
+    "fiberContent": "1 grams",
+    "proteinContent": "1 grams",
+    "sugarContent": "1 grams"
+  }
+}

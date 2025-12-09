@@ -1,0 +1,48 @@
+{
+  "title": "White Chicken Chili",
+  "source_url": "https://www.foodnetwork.com/recipes/patrick-and-gina-neely/white-chicken-chili-recipe-1922199",
+  "host": "foodnetwork.co.uk",
+  "image": "https://food.fnr.sndimg.com/content/dam/images/food/fullset/2013/7/5/0/NEELEYS_White-Chicken-Chili_s4x3.jpg.rend.hgtvcom.1280.1280.suffix/1387299376975.webp",
+  "yields": "6 servings",
+  "total_minutes": 55,
+  "prep_minutes": 20,
+  "cook_minutes": 35,
+  "ingredients": [
+    "2 (14.5-ounce) cans white beans",
+    "1 tablespoon canola oil",
+    "1 medium jalapeno pepper, minced",
+    "2 medium poblano peppers, chopped",
+    "1 large onion, chopped",
+    "4 garlic cloves, minced",
+    "Kosher salt and freshly ground black pepper",
+    "1 tablespoon ground cumin",
+    "1 1/2 teaspoons ground coriander",
+    "1 teaspoon ancho chili powder",
+    "4 cups low-sodium chicken broth",
+    "2 limes, juiced, plus lime wedges, for serving",
+    "1 rotisserie chicken, skin removed and meat shredded",
+    "1/4 cup chopped cilantro leaves",
+    "Sour cream, for topping",
+    "Tortilla chips, coarsely crushed, for topping"
+  ],
+  "steps": [
+    "Drain and rinse the canned white beans. In a medium bowl, mash half of the beans with a potato masher until chunky. Reserve the beans until needed.",
+    "Add the canola oil to a large Dutch oven and heat it over medium-high heat. Add the peppers, onions, and garlic and saute until soft and fragrant, about 5 minutes. Season the vegetables with salt, and pepper, to taste. Add the cumin, coriander, and chili powder and continue to saute for 1 more minute to toast the spices. Stir in the chicken stock, and lime juice and bring to a simmer. Add the beans and continue to simmer for 20 more minutes.",
+    "After 20 minutes of simmering, taste for seasoning, and adjust if necessary. Stir in the shredded rotisserie chicken and cilantro and simmer until heated through, about 5 more minutes. Serve the chili in individual bowls topped with a dollop of sour cream, crushed tortilla chips, and lime wedges."
+  ],
+  "author": "The Neelys",
+  "cuisine": null,
+  "category": null,
+  "nutrients": {
+    "servingSize": "1 of 6 servings",
+    "calories": "670",
+    "fatContent": "34g",
+    "saturatedFatContent": "9g",
+    "carbohydrateContent": "40g",
+    "fiberContent": "9g",
+    "sugarContent": "3g",
+    "proteinContent": "52g",
+    "cholesterolContent": "150mg",
+    "sodiumContent": "1329mg"
+  }
+}

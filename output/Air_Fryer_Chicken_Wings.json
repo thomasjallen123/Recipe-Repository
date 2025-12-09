@@ -1,0 +1,37 @@
+{
+  "title": "Air Fryer Chicken Wings",
+  "source_url": "https://www.foodnetwork.com/recipes/food-network-kitchen/air-fryer-chicken-wings-5565422",
+  "host": "foodnetwork.co.uk",
+  "image": "https://food.fnr.sndimg.com/content/dam/images/food/fullset/2019/2/19/1/FN_Air-Fryer-Chicken-Wings-H_s4x3.jpg.rend.hgtvcom.1280.1280.suffix/1550611553388.webp",
+  "yields": "4 servings",
+  "total_minutes": 40,
+  "prep_minutes": null,
+  "cook_minutes": 20,
+  "ingredients": [
+    "2 pounds chicken wings, split at the joint and tips removed",
+    "Kosher salt",
+    "4 tablespoons unsalted butter",
+    "1/2 cup hot sauce, such as Frank's RedHot",
+    "Ranch or blue cheese dressing, for serving"
+  ],
+  "steps": [
+    "Pat the chicken wings dry and sprinkle generously with salt. Place the wings in the basket of a 3.5-quart air fryer so they are not touching (if necessary to fit, line up the drumettes standing upright along the sides). Set the air fryer to 360 degrees F and cook for 12 minutes, then flip the wings with tongs and cook for 12 minutes more. Flip the wings again, increase the heat to 390 degrees F and cook until the outsides are extra-crispy, about 6 minutes more.",
+    "Meanwhile, warm the butter in a microwave-safe bowl in the microwave until melted, about 1 minute. Whisk in the hot sauce.",
+    "Toss the wings with the butter mixture to coat in a large bowl and serve with dressing on the side."
+  ],
+  "author": "Food Network Kitchen",
+  "cuisine": null,
+  "category": "appetizer",
+  "nutrients": {
+    "servingSize": "1 of 4 servings",
+    "calories": "588",
+    "fatContent": "46g",
+    "saturatedFatContent": "16g",
+    "carbohydrateContent": "0g",
+    "fiberContent": "0g",
+    "sugarContent": "0g",
+    "proteinContent": "41g",
+    "cholesterolContent": "287mg",
+    "sodiumContent": "591mg"
+  }
+}

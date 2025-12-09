@@ -1,0 +1,47 @@
+{
+  "title": "Mexican Chicken Soup",
+  "source_url": "https://www.foodnetwork.com/recipes/ina-garten/mexican-chicken-soup-recipe-1948662",
+  "host": "foodnetwork.co.uk",
+  "image": "https://food.fnr.sndimg.com/content/dam/images/food/fullset/2007/8/22/0/IG0905_Mexican_Chicken_Soup.jpg.rend.hgtvcom.1280.1280.suffix/1485531333469.webp",
+  "yields": "8 servings",
+  "total_minutes": 65,
+  "prep_minutes": 15,
+  "cook_minutes": 50,
+  "ingredients": [
+    "4 split (2 whole) chicken breasts, bone in, skin on",
+    "Good olive oil",
+    "Kosher salt and freshly ground black pepper",
+    "2 cups chopped onions (2 onions)",
+    "1 cup chopped celery (2 stalks)",
+    "2 cups chopped carrots (4 carrots)",
+    "4 large cloves garlic, chopped",
+    "2 1/2 quarts chicken stock, preferably homemade",
+    "1 (28-ounce) can whole tomatoes in puree, crushed",
+    "2 to 4 jalapeno peppers, seeded and minced",
+    "1 teaspoon ground cumin",
+    "1 teaspoon ground coriander seed",
+    "1/4 to 1/2 cup chopped fresh cilantro leaves, optional",
+    "6 (6-inch) fresh white corn tortillas",
+    "For serving: sliced avocado, sour cream, grated Cheddar cheese, and tortilla chips"
+  ],
+  "steps": [
+    "Preheat the oven to 350 degrees F.",
+    "Place the chicken breasts skin side up on a sheet pan. Rub with olive oil, sprinkle with salt and pepper, and roast for 35 to 40 minutes, until done. When the chicken is cool enough to handle, discard the skin and bones, and shred the meat. Cover and set aside.",
+    "Meanwhile, heat 3 tablespoons of olive oil in a large pot or Dutch oven. Add the onions, celery, and carrots and cook over medium-low heat for 10 minutes, or until the onions start to brown. Add the garlic and cook for 30 seconds. Add the chicken stock, tomatoes with their puree, jalapenos, cumin, coriander, 1 tablespoon salt (depending on the saltiness of the chicken stock), 1 teaspoon pepper, and the cilantro, if using. Cut the tortillas in 1/2, then cut them crosswise into 1/2-inch strips and add to the soup. Bring the soup to a boil, then lower the heat and simmer for 25 minutes. Add the shredded chicken and season to taste. Serve the soup hot topped with sliced avocado, a dollop of sour cream, grated Cheddar cheese, and broken tortilla chips."
+  ],
+  "author": "Ina Garten",
+  "cuisine": "mexican",
+  "category": "appetizer",
+  "nutrients": {
+    "servingSize": "1 of 8 servings",
+    "calories": "470",
+    "fatContent": "18g",
+    "saturatedFatContent": "3g",
+    "carbohydrateContent": "35g",
+    "fiberContent": "5g",
+    "sugarContent": "11g",
+    "proteinContent": "41g",
+    "cholesterolContent": "108mg",
+    "sodiumContent": "1520mg"
+  }
+}

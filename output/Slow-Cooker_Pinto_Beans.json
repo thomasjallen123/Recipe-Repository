@@ -1,0 +1,42 @@
+{
+  "title": "Slow-Cooker Pinto Beans",
+  "source_url": "https://www.foodnetwork.com/recipes/food-network-kitchen/slow-cooker-pinto-beans-10076200",
+  "host": "foodnetwork.co.uk",
+  "image": "https://food.fnr.sndimg.com/content/dam/images/food/fullset/2021/05/07/0/FNK_SLOW_COOKER_PINTO_BEANS_H_f_s4x3.jpg.rend.hgtvcom.1280.1280.suffix/1620410836872.webp",
+  "yields": "6 servings",
+  "total_minutes": 490,
+  "prep_minutes": null,
+  "cook_minutes": 10,
+  "ingredients": [
+    "1 pound dried pinto beans, rinsed and picked over (see Cook’s Note)",
+    "48 ounces low-sodium chicken broth (or one 32-ounce carton plus 2 cups water)",
+    "One 8-ounce jar mild or hot diced pickled jalapeños",
+    "2 tablespoons dried oregano",
+    "1 tablespoon ground cumin",
+    "3 cloves garlic",
+    "2 dried bay leaves",
+    "1/4 cup cilantro leaves plus 1/4 cup chopped cilantro stems, optional",
+    "Kosher salt",
+    "3/4 cup shredded sharp Cheddar or crumbled Cotija or queso fresco",
+    "1 lime, cut into wedges"
+  ],
+  "steps": [
+    "Put the beans, chicken broth, pickled jalapeños and brine from the jar in a 4-to-7-quart slow cooker. Stir in the oregano, cumin, garlic, bay leaves, cilantro stems if using and 1 teaspoon salt. Cover and cook on high until the beans are tender but still hold their shape, 8 to 10 hours.",
+    "Remove and discard the bay leaves. Use the back of a spoon to smash the garlic cloves, then stir them into the beans. Serve topped with the cheese, cilantro leaves and lime wedges."
+  ],
+  "author": "Food Network Kitchen",
+  "cuisine": null,
+  "category": "side-dish",
+  "nutrients": {
+    "servingSize": "1 of 6 servings",
+    "calories": "337",
+    "fatContent": "4g",
+    "saturatedFatContent": "1g",
+    "carbohydrateContent": "56g",
+    "fiberContent": "14g",
+    "sugarContent": "4g",
+    "proteinContent": "22g",
+    "cholesterolContent": "3mg",
+    "sodiumContent": "835mg"
+  }
+}
