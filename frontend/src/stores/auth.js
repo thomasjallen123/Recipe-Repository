@@ -1,60 +1,67 @@
 // src/stores/auth.js
 import { defineStore } from 'pinia'
+import { ref, computed } from 'vue'
 import api from '@/services/api'
 import { useRouter } from 'vue-router'
 
 export const useAuthStore = defineStore('auth', () => {
   const user = ref(null)
-  const token = ref(null)
-  const loading = ref(false)
-  const error = ref(null)
+  const isLoading = ref(true)
   const router = useRouter()
 
-  const isAuthenticated = computed(() => !!token.value)
+  const isAuthenticated = computed(() => !!user.value)
 
-  const init = () => {
-    const saved = localStorage.getItem('authToken')
-    if (saved) token.value = saved
+  const fetchUser = async () => {
+    try {
+      const res = await api.get('/auth/me')
+      user.value = res.data
+    } catch (err) {
+      user.value = null
+    } finally {
+      isLoading.value = false
+    }
   }
 
   const login = async (credentials) => {
-    loading.value = true
-    error.value = null
     try {
-      const res = await api.post('/auth/login', credentials)
-      user.value = res.data.user
-      token.value = res.data.token
-      localStorage.setItem('authToken', token.value)
-      const redirect = router.currentRoute.value.query.redirect || '/search'
-      router.push(redirect)
+      await api.post('/auth/login', credentials)
+      await fetchUser()
+      router.push('/search')
     } catch (err) {
-      error.value = err.response?.data?.error || 'Login failed'
-    } finally {
-      loading.value = false
+      throw err
     }
   }
 
   const register = async (data) => {
-    loading.value = true
-    error.value = null
     try {
       await api.post('/auth/register', data)
       router.push('/login')
     } catch (err) {
-      error.value = err.response?.data?.error || 'Registration failed'
-    } finally {
-      loading.value = false
+      throw err
     }
   }
 
-  const logout = () => {
-    user.value = null
-    token.value = null
-    localStorage.removeItem('authToken')
-    router.push('/')
+  const logout = async () => {
+    try {
+      await api.post('/auth/logout')
+    } catch (err) {
+      console.error('Logout failed', err)
+    } finally {
+      user.value = null
+      router.push('/')
+    }
   }
 
-  init()
+  // Auto-check session on app start
+  fetchUser()
 
-  return { user, token, loading, error, isAuthenticated, login, register, logout }
+  return {
+    user,
+    isAuthenticated,
+    isLoading,
+    login,
+    register,
+    logout,
+    fetchUser
+  }
 })

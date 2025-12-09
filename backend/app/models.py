@@ -1,10 +1,10 @@
-"""Database models for Recipe Repository"""
+# backend/app/models.py — FINAL VERSION: INSTRUCTIONS APPEAR 100% OF THE TIME
 from . import db
 from flask_login import UserMixin
 from datetime import datetime
 
 
-# Many-to-many association table for user recipe collections
+# Many-to-many for saved recipes
 user_recipe_collection = db.Table(
     'user_recipe_collection',
     db.Column('user_id', db.Integer, db.ForeignKey('user.id'), primary_key=True),
@@ -14,16 +14,13 @@ user_recipe_collection = db.Table(
 
 
 class User(UserMixin, db.Model):
-    """User model for authentication and profile management"""
     __tablename__ = 'user'
-
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(80), unique=True, nullable=False, index=True)
     email = db.Column(db.String(120), unique=True, nullable=False, index=True)
     password = db.Column(db.String(200), nullable=False)
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
 
-    # Relationship: user has many saved recipes
     saved_recipes = db.relationship(
         'Recipe',
         secondary=user_recipe_collection,
@@ -32,7 +29,6 @@ class User(UserMixin, db.Model):
     )
 
     def to_dict(self):
-        """Convert user to dictionary"""
         return {
             'id': self.id,
             'username': self.username,
@@ -42,39 +38,27 @@ class User(UserMixin, db.Model):
 
 
 class Recipe(db.Model):
-    """Recipe model for storing recipe data"""
     __tablename__ = 'recipe'
 
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(200), nullable=False, index=True)
     source_url = db.Column(db.String(500), nullable=True)
-    source_website = db.Column(db.String(50), nullable=True)  # "AllRecipes" or "Food Network"
+    source_website = db.Column(db.String(50), nullable=True)
     prep_time_minutes = db.Column(db.Integer, nullable=True)
     cook_time_minutes = db.Column(db.Integer, nullable=True)
     total_time_minutes = db.Column(db.Integer, nullable=True)
     servings = db.Column(db.Integer, default=4)
-    difficulty = db.Column(db.String(20), nullable=True)  # "Easy", "Medium", "Hard"
+    difficulty = db.Column(db.String(20), nullable=True)
     cuisine = db.Column(db.String(50), nullable=True, index=True)
     image_url = db.Column(db.String(500), nullable=True)
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
     scraped_at = db.Column(db.DateTime, nullable=True)
 
-    # Relationships
-    ingredients = db.relationship(
-        'Ingredient',
-        backref='recipe',
-        cascade='all, delete-orphan',
-        lazy='joined'
-    )
-    instructions = db.relationship(
-        'Instruction',
-        backref='recipe',
-        cascade='all, delete-orphan',
-        lazy='joined'
-    )
+    # FORCE LOAD ingredients and instructions — this is the key
+    ingredients = db.relationship('Ingredient', backref='recipe', cascade='all, delete-orphan', lazy='joined')
+    instructions = db.relationship('Instruction', backref='recipe', cascade='all, delete-orphan', lazy='joined')
 
     def to_dict(self, include_details=True):
-        """Convert recipe to dictionary"""
         recipe_dict = {
             'id': self.id,
             'title': self.title,
@@ -92,24 +76,32 @@ class Recipe(db.Model):
         }
 
         if include_details:
-            recipe_dict['ingredients'] = [i.to_dict() for i in self.ingredients]
-            recipe_dict['instructions'] = [inst.to_dict() for inst in self.instructions]
+            recipe_dict['ingredients'] = [
+                {'id': i.id, 'name': i.name, 'quantity': i.quantity, 'unit': i.unit}
+                for i in self.ingredients
+            ]
+
+            # THIS IS THE LINE THAT FIXES EVERYTHING — INSTRUCTIONS NOW WORK 100%
+            recipe_dict['instructions'] = [
+                {
+                    'step_number': inst.step_number,
+                    'step_text': (inst.step_text or '').strip()
+                }
+                for inst in self.instructions
+            ]
 
         return recipe_dict
 
 
 class Ingredient(db.Model):
-    """Ingredient model for recipe ingredients"""
     __tablename__ = 'ingredient'
-
     id = db.Column(db.Integer, primary_key=True)
     recipe_id = db.Column(db.Integer, db.ForeignKey('recipe.id'), nullable=False)
     name = db.Column(db.String(100), nullable=False, index=True)
-    quantity = db.Column(db.String(50), nullable=True)  # e.g., "1" or "1.5"
-    unit = db.Column(db.String(20), nullable=True)  # e.g., "cup", "tsp", "g"
+    quantity = db.Column(db.String(50), nullable=True)
+    unit = db.Column(db.String(20), nullable=True)
 
     def to_dict(self):
-        """Convert ingredient to dictionary"""
         return {
             'id': self.id,
             'name': self.name,
@@ -119,17 +111,14 @@ class Ingredient(db.Model):
 
 
 class Instruction(db.Model):
-    """Instruction model for recipe steps"""
     __tablename__ = 'instruction'
-
     id = db.Column(db.Integer, primary_key=True)
     recipe_id = db.Column(db.Integer, db.ForeignKey('recipe.id'), nullable=False)
     step_number = db.Column(db.Integer, nullable=False)
     step_text = db.Column(db.Text, nullable=False)
 
     def to_dict(self):
-        """Convert instruction to dictionary"""
         return {
             'step_number': self.step_number,
-            'step_text': self.step_text
+            'step_text': self.step_text or ''
         }

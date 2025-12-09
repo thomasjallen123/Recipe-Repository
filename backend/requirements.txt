@@ -1,4 +1,3 @@
-"""Python dependencies for Recipe Repository backend"""
 Flask==2.3.0
 Flask-SQLAlchemy==3.0.5
 Flask-Login==0.6.2

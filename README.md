@@ -49,6 +49,15 @@ output/<domain>/failures.csv
 Keep --sleep ≥ 1.5–2s to be polite.
 
 Limited to a small set of URLs for the MVP demo.
+
+These scripts permanently fix scraped data quality — professional practice!
+
+### Data Scripts
+`populate_db.py` - Inital recipe population
+`fix_missing_instructions.py` - Rescrapes instructions
+`fix_cuisines_and_times.py` - Smart cuisine detection
+`final_perfect_update.py` - Final polish 
+
 # Database-Framework Branch
 
 Branch goal

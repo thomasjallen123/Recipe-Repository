@@ -1,149 +1,157 @@
-<!-- src/views/RecipeDetailView.vue -->
-<template>
-  <main class="min-h-screen bg-gradient-to-br from-teal-50 to-lime-50 p-6">
-    <button @click="$router.back()" class="mb-6 inline-flex items-center gap-2 text-teal-700 font-bold hover:text-teal-900 transition">
-      ← Back to Search
-    </button>
-
-    <div v-if="loading" class="max-w-4xl mx-auto space-y-6">
-      <div class="bg-white/80 backdrop-blur p-8 rounded-2xl shadow animate-pulse">
-        <div class="h-10 bg-gray-300 rounded w-3/4 mb-4"></div>
-        <div class="h-6 bg-gray-300 rounded w-1/2"></div>
-      </div>
-    </div>
-
-    <div v-else-if="error" class="text-center py-20">
-      <h2 class="text-3xl font-black text-red-600 mb-4">Recipe Not Found</h2>
-      <p class="text-lg text-gray-700 mb-6">{{ error }}</p>
-      <button @click="fetchRecipe" class="px-8 py-3 bg-red-600 text-white rounded-xl hover:bg-red-700 transition font-bold">
-        Try Again
-      </button>
-    </div>
-
-    <article v-else class="max-w-4xl mx-auto bg-white/90 backdrop-blur-md p-8 rounded-3xl shadow-2xl">
-      <header class="mb-8">
-        <h1 class="text-5xl font-black text-teal-700 mb-4 leading-tight">{{ recipe.title }}</h1>
-        <p class="text-xl text-gray-700">{{ recipe.cuisine }} • {{ recipe.cookTime }} min • Serves {{ servings }}</p>
-      </header>
-
-      <!-- Serving Scaler -->
-      <div class="mb-12 p-6 bg-teal-50 rounded-2xl border border-teal-200">
-        <label class="block font-bold text-teal-700 mb-3">Servings:</label>
-        <div class="flex items-center gap-4">
-          <button @click="servings--" :disabled="servings <= 1" class="w-10 h-10 bg-teal-600 text-white rounded-full font-bold hover:bg-teal-700 disabled:opacity-50">−</button>
-          <input v-model.number="servings" type="number" min="1" max="20" class="w-20 px-3 py-2 text-center text-xl font-bold border-2 border-teal-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-teal-400" />
-          <button @click="servings++" class="w-10 h-10 bg-teal-600 text-white rounded-full font-bold hover:bg-teal-700">+</button>
-          <span class="ml-4 text-lg font-semibold text-teal-600">({{ scaleFactor.toFixed(1) }}x)</span>
-        </div>
-      </div>
-
-      <!-- Ingredients -->
-      <section class="mb-12">
-        <h2 class="text-3xl font-black text-teal-700 mb-6">Ingredients</h2>
-        <ul class="space-y-3">
-          <li v-for="ing in scaledIngredients" :key="ing.name" class="flex justify-between items-center bg-teal-50/70 p-4 rounded-xl">
-            <span class="font-bold text-teal-700">{{ ing.scaled }} {{ ing.unit || '' }}</span>
-            <span class="text-gray-800 font-medium">{{ ing.name }}</span>
-          </li>
-        </ul>
-      </section>
-
-      <!-- Instructions -->
-      <section>
-        <h2 class="text-3xl font-black text-teal-700 mb-6">Instructions</h2>
-        <div class="prose prose-lg max-w-none text-gray-800 whitespace-pre-line">
-          {{ recipe.instructions }}
-        </div>
-      </section>
-    </article>
-  </main>
-</template>
-
+<!-- src/views/RecipeDetailView.vue — FINAL FIX: Uses Pinia, not localStorage -->
 <script setup>
 import { ref, computed, onMounted } from 'vue'
 import { useRoute } from 'vue-router'
-import { formatQuantity } from '@/services/formatQuantity'
+import { useRecipeStore } from '@/stores/recipes'
+import api from '@/services/api'
 
 const route = useRoute()
+const recipeStore = useRecipeStore()
+
 const recipe = ref(null)
-const servings = ref(4)
-const originalServings = ref(4)
-const loading = ref(true)
-const error = ref(null)
+const baseServings = ref(1)
+const servings = ref(1)
+const isLoading = ref(true)
+const error = ref('')
 
-// ALL 3 RECIPES
-const mockRecipes = {
-  1: {
-    id: 1,
-    title: "Spicy Chicken Curry",
-    cuisine: "Indian",
-    cookTime: 45,
-    servings: 4,
-    ingredients: [
-      { name: "chicken", quantity: 500, unit: "g" },
-      { name: "curry powder", quantity: 2, unit: "tbsp" },
-      { name: "coconut milk", quantity: 400, unit: "ml" },
-      { name: "onion", quantity: 1 },
-    ],
-    instructions: "1. Brown chicken.\n2. Add onion and curry.\n3. Pour in coconut milk.\n4. Simmer 30 min.\n5. Serve with rice."
-  },
-  2: {
-    id: 2,
-    title: "Beef Tacos",
-    cuisine: "Mexican",
-    cookTime: 20,
-    servings: 4,
-    ingredients: [
-      { name: "ground beef", quantity: 400, unit: "g" },
-      { name: "taco shells", quantity: 8 },
-      { name: "lettuce", quantity: 1, unit: "cup" },
-      { name: "cheese", quantity: 100, unit: "g" },
-    ],
-    instructions: "1. Cook beef with spices.\n2. Warm shells.\n3. Fill with beef, lettuce, cheese.\n4. Add salsa."
-  },
-  3: {
-    id: 3,
-    title: "Pasta Carbonara",
-    cuisine: "Italian",
-    cookTime: 25,
-    servings: 4,
-    ingredients: [
-      { name: "spaghetti", quantity: 400, unit: "g" },
-      { name: "eggs", quantity: 4 },
-      { name: "pancetta", quantity: 200, unit: "g" },
-      { name: "parmesan", quantity: 100, unit: "g" },
-    ],
-    instructions: "1. Boil pasta.\n2. Fry pancetta.\n3. Mix eggs + cheese.\n4. Toss off heat.\n5. Serve hot."
-  }
-}
-
-const fetchRecipe = async () => {
-  loading.value = true
-  error.value = null
-  try {
-    await new Promise(r => setTimeout(r, 400))
-    const id = parseInt(route.params.id)
-    const data = mockRecipes[id]
-    if (!data) throw new Error("Recipe not found")
-    recipe.value = data
-    originalServings.value = data.servings
-    servings.value = originalServings.value
-  } catch (err) {
-    error.value = err.message
-  } finally {
-    loading.value = false
-  }
-}
-
-const scaleFactor = computed(() => servings.value / originalServings.value)
-const scaledIngredients = computed(() => {
-  if (!recipe.value) return []
-  return recipe.value.ingredients.map(ing => ({
-    ...ing,
-    scaled: formatQuantity(ing.quantity * scaleFactor.value)
-  }))
+// Use Pinia store instead of localStorage
+const isSaved = computed(() => {
+  if (!recipe.value) return false
+  return recipeStore.savedRecipeIds.includes(recipe.value.id)
 })
 
-onMounted(fetchRecipe)
+const toggleSave = () => {
+  if (!recipe.value) return
+  recipeStore.toggleSave(recipe.value)
+}
+
+// Capitalized cuisine
+const displayCuisine = computed(() => {
+  if (!recipe.value?.cuisine) return 'Cuisine'
+  return recipe.value.cuisine
+    .split(' ')
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+    .join(' ')
+})
+
+// Smart difficulty
+const displayDifficulty = computed(() => {
+  const d = recipe.value?.difficulty
+  if (!d || d === 'N/A') {
+    const time = recipe.value?.total_time_minutes || 0
+    if (time < 30) return 'Easy'
+    if (time < 90) return 'Medium'
+    return 'Hard'
+  }
+  return d.charAt(0).toUpperCase() + d.slice(1).toLowerCase()
+})
+
+// Scale ingredients
+const scaledIngredients = computed(() => {
+  if (!recipe.value) return []
+  const base = baseServings.value || recipe.value.servings || 1
+  return (recipe.value.ingredients || []).map(ing => {
+    let qty = ing.quantity
+    const num = parseFloat(qty)
+    if (!isNaN(num)) {
+      const scaled = (num * servings.value) / base
+      qty = Number.isInteger(scaled) ? scaled.toString() : scaled.toFixed(2)
+    }
+    return { ...ing, scaledQuantity: qty }
+  })
+})
+
+async function loadRecipe() {
+  try {
+    isLoading.value = true
+    error.value = ''
+
+    const id = route.params.id
+    const resp = await api.get(`/recipes/${id}`)
+    
+    recipe.value = resp.data
+    baseServings.value = resp.data.servings || 1
+    servings.value = baseServings.value
+  } catch (err) {
+    console.error(err)
+    error.value = 'Failed to load recipe.'
+  } finally {
+    isLoading.value = false
+  }
+}
+
+onMounted(loadRecipe)
 </script>
 
+<template>
+  <div class="min-h-screen bg-gradient-to-b from-green-50 to-emerald-50 pb-16">
+    <div class="max-w-4xl mx-auto px-4 pt-10">
+      <router-link to="/search" class="text-sm text-teal-600 hover:underline">
+        ← Back to search
+      </router-link>
+
+      <div v-if="isLoading" class="mt-8 text-center text-gray-600">Loading recipe...</div>
+      <div v-else-if="error" class="mt-8 text-center text-red-600">{{ error }}</div>
+
+      <div v-else-if="recipe" class="mt-8 bg-white rounded-2xl shadow-md p-6 md:p-8">
+        <!-- Title + Heart -->
+        <div class="flex justify-between items-start mb-6">
+          <h1 class="text-3xl font-bold text-emerald-800">{{ recipe.title }}</h1>
+
+          <!-- HEART ON DETAIL PAGE — NOW WORKS WITH PINIA -->
+          <button
+            @click="toggleSave"
+            class="bg-white/90 p-4 rounded-full shadow-xl hover:scale-110 transition backdrop-blur border border-red-200"
+          >
+            <svg v-if="isSaved" class="w-8 h-8 text-red-500 animate-pulse" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+            </svg>
+            <svg v-else class="w-8 h-8 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+            </svg>
+          </button>
+        </div>
+
+        <p class="text-gray-600 mb-2"><strong>Cuisine:</strong> {{ displayCuisine }}</p>
+        <p class="text-gray-600 mb-2"><strong>Total time:</strong> {{ recipe.total_time_minutes || '?' }} min</p>
+        <p class="text-gray-600 mb-4"><strong>Difficulty:</strong> {{ displayDifficulty }}</p>
+
+        <div class="mb-6 flex items-center gap-3">
+          <label class="font-semibold text-gray-700">Servings:</label>
+          <input type="number" v-model.number="servings" min="1" class="w-20 px-2 py-1 border rounded-md text-center" />
+          <span class="text-sm text-gray-500">(original: {{ baseServings }})</span>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8">
+          <div>
+            <h2 class="text-xl font-semibold text-emerald-700 mb-3">Ingredients</h2>
+            <ul class="list-disc list-inside space-y-1 text-gray-700">
+              <li v-for="ing in scaledIngredients" :key="ing.id">
+                <span class="font-medium">
+                  {{ ing.scaledQuantity || ing.quantity }}
+                  <span v-if="ing.unit"> {{ ing.unit }}</span>
+                </span>
+                {{ ' ' + ing.name }}
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h2 class="text-xl font-semibold text-emerald-700 mb-3">Instructions</h2>
+            <ol class="list-decimal list-inside space-y-2 text-gray-700">
+              <li v-for="step in recipe.instructions" :key="step.step_number">
+                {{ step.step_text }}
+              </li>
+            </ol>
+          </div>
+        </div>
+
+        <div v-if="recipe.source_url" class="mt-6">
+          <a :href="recipe.source_url" target="_blank" class="text-sm text-teal-600 hover:underline">
+            Original source →
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>

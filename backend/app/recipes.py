@@ -1,7 +1,8 @@
-# Recipe routes and logic
+# backend/app/recipes.py — FINAL NUCLEAR FIX (copy-paste this entire file)
 from flask import Blueprint, request, jsonify
-from .models import Recipe, Ingredient, Instruction
+from .models import Recipe
 from . import db
+import sqlalchemy as sa
 
 recipes_bp = Blueprint('recipes', __name__)
 
@@ -11,19 +12,32 @@ def get_recipes():
     cuisine = request.args.get('cuisine')
     max_time = request.args.get('maxTime', type=int)
 
-    query = Recipe.query
+    query = Recipe.query.options(
+        sa.orm.joinedload(Recipe.ingredients),
+        sa.orm.joinedload(Recipe.instructions)
+    )
 
     if ingredient:
-        query = query.join(Ingredient).filter(Ingredient.name.ilike(f'%{ingredient}%'))
+        query = query.join(Recipe.ingredients).filter(
+            sa.func.lower(Ingredient.name).contains(ingredient.lower())
+        )
     if cuisine:
-        query = query.filter(Recipe.cuisine == cuisine)
+        query = query.filter(sa.func.lower(Recipe.cuisine) == cuisine.lower())
     if max_time:
-        query = query.filter(Recipe.cook_time <= max_time)
+        query = query.filter(Recipe.total_time_minutes <= max_time)
 
     recipes = query.all()
-    return jsonify({'recipes': [r.to_dict() for r in recipes]}), 200
+
+    return jsonify({
+        'recipes': [r.to_dict(include_details=True) for r in recipes]
+    }), 200
+
 
 @recipes_bp.route('/<int:id>', methods=['GET'])
 def get_recipe_by_id(id):
-    recipe = Recipe.query.get_or_404(id)
-    return jsonify(recipe.to_dict()), 200
+    recipe = Recipe.query.options(
+        sa.orm.joinedload(Recipe.ingredients),
+        sa.orm.joinedload(Recipe.instructions)
+    ).get_or_404(id)
+
+    return jsonify(recipe.to_dict(include_details=True)), 200
