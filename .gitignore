@@ -15,4 +15,3 @@ dist-ssr/
 
 # Playwright
 backend/venv/lib/python*/site-packages/playwright/driver/
-output/
