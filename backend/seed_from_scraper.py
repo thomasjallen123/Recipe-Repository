@@ -54,7 +54,7 @@ def load_recipe_from_json(json_path):
             "cuisine": data.get("cuisine"),
             "ingredients": data.get("ingredients", []),
             "instructions": data.get("instructions", []),
-            "scraped_at": datetime.utcnow(),
+			"scraped_at": datetime.now(datetime.timezone.utc).replace(tzinfo=None),
         }
     except Exception as e:
         print(f"Failed to load {json_path}: {e}")
@@ -93,7 +93,7 @@ def seed_all_recipes():
                     servings=recipe_data["servings"],
                     difficulty=recipe_data["difficulty"],  # ← real one
                     cuisine=recipe_data["cuisine"],
-                    created_at=datetime.utcnow(),
+                    created_at=datetime.now(datetime.timezone.utc).replace(tzinfo=None),
                     scraped_at=recipe_data["scraped_at"],
                 )
                 db.session.add(recipe)
