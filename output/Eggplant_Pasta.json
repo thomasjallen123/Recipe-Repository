@@ -1,0 +1,41 @@
+{
+  "title": "Eggplant Pasta",
+  "source_url": "https://www.foodnetwork.com/recipes/alton-brown/eggplant-pasta-recipe-1911359",
+  "host": "foodnetwork.co.uk",
+  "image": "https://food.fnr.sndimg.com/content/dam/images/food/editorial/homepage/fn-feature.jpg.rend.hgtvcom.1280.1280.suffix/1474463768097.webp",
+  "yields": "4 servings",
+  "total_minutes": 50,
+  "prep_minutes": 40,
+  "cook_minutes": 10,
+  "ingredients": [
+    "2 medium-large eggplants",
+    "Kosher salt, for purging",
+    "4 tablespoons olive oil",
+    "1 teaspoon garlic, minced",
+    "1/2 teaspoon chile flakes",
+    "4 small tomatoes, seeded and chopped",
+    "1/2 cup cream",
+    "4 tablespoons basil chiffonade",
+    "1/4 cup freshly grated Parmesan",
+    "Freshly ground pepper"
+  ],
+  "steps": [
+    "Peel each eggplant leaving 1-inch of skin at the top and bottom unpeeled. Slice the eggplant thinly lengthwise, about 1/4-inch thick. Evenly coat each slice with the salt and purge on a sheet pan fitted with a rack for 30 minutes. Rinse with cold water and roll in paper towels to dry. Slice the pieces into thin strips to resemble pasta.",
+    "In a large saute pan heat the oil. Add the garlic and chili flakes and toast. Add the eggplant \"pasta\" and toss to coat. Add the tomatoes and cook for 3 minutes. Add the cream and increase heat to thicken sauce. Finally add the basil and Parmesan and toss to combine. Season with pepper, no salt needed as the eggplant will have residual salt from the purge. Serve immediately."
+  ],
+  "author": "Alton Brown",
+  "cuisine": null,
+  "category": null,
+  "nutrients": {
+    "servingSize": "1 of 4 servings",
+    "calories": "349",
+    "fatContent": "28g",
+    "saturatedFatContent": "10g",
+    "carbohydrateContent": "22g",
+    "fiberContent": "10g",
+    "sugarContent": "13g",
+    "proteinContent": "8g",
+    "cholesterolContent": "47mg",
+    "sodiumContent": "985mg"
+  }
+}

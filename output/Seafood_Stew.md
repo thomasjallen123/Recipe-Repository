@@ -1,0 +1,51 @@
+# Seafood Stew
+
+![Recipe image](https://food.fnr.sndimg.com/content/dam/images/food/fullset/2007/1/12/0/ig0710_seafood1.jpg.rend.hgtvcom.1280.1280.suffix/1371585574495.webp)
+
+- **Source:** foodnetwork.co.uk
+- **URL:** https://www.foodnetwork.com/recipes/ina-garten/seafood-stew-recipe-1946817
+- **Yields:** 6 servings
+- **Total:** 70 min
+- **Prep:** 30 min
+- **Cook:** 40 min
+
+## Ingredients
+
+- 3 tablespoons good olive oil
+- 1 1/2 cups chopped yellow onions (2 small)
+- 2 cups large-diced small white potatoes
+- 2 cups chopped fennel (1 large bulb)
+- 2 teaspoons kosher salt
+- 1 teaspoon freshly ground black pepper
+- 2 cups good white wine
+- 1 (28-ounce) can plum tomatoes, chopped
+- 1 quart Seafood Stock, recipe follows, or store-bought fish stock
+- 1 tablespoon chopped garlic (3 cloves)
+- 1 teaspoon saffron threads
+- 1 pound large shrimp, shelled and deveined (reserve the shells for the stock)
+- 1 pound each halibut and bass fillets, cut in large chunks
+- 24 mussels, cleaned
+- 3 tablespoons Pernod
+- 1 teaspoon grated orange zest
+- Toasted baguette slices, buttered and rubbed with garlic
+- 2 tablespoons good olive oil
+- Shells from 1 pound large shrimp
+- 2 cups chopped yellow onions (2 onions)
+- 2 carrots, unpeeled and chopped
+- 3 stalks celery, chopped
+- 2 cloves garlic, minced
+- 1 1/2 quarts water
+- 1/2 cup good white wine
+- 1/3 cup tomato paste
+- 1 tablespoon kosher salt
+- 1 1/2 teaspoons freshly ground black pepper
+- 10 sprigs fresh thyme, including stems
+
+## Steps
+
+1. Heat the oil in a Dutch oven or stockpot, add the onions, potatoes, fennel, salt, and pepper, and saute over medium-low heat for 15 minutes, until the onions begin to brown. Add the wine and scrape up the brown bits with a wooden spoon. Add the tomatoes with their juices, stock, garlic, and saffron to the pot, bring to a boil, then lower the heat and simmer uncovered for 15 minutes, until the potatoes are tender. Add the shrimp, fish, and mussels, bring to a boil, then lower the heat, cover, and cook for 5 minutes. Turn off the heat and allow the pot to sit covered for another 5 minutes. The fish and shrimp should be cooked and the mussels opened. Discard any mussels that don't open. Stir in the Pernod, orange zest, and salt, to taste. Serve ladled over 1 or 2 slices of toasted baguette.;
+2. Warm the oil in the pan over medium heat. Add the shrimp shells, onions, carrots, and celery over medium heat for 15 minutes, until lightly browned. Add the garlic and cook 2 more minutes. Add 1 1¿2 quarts of water, the white wine, tomato paste, salt, pepper, and thyme. Bring to a boil, then reduce the heat and simmer for 1 hour. Strain through a sieve, pressing the solids. You should have approximately 1 quart of stock. If not, you can make up the difference with water or white wine.
+
+## Notes
+
+_Add your notes here…_

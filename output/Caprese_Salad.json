@@ -1,0 +1,35 @@
+{
+  "title": "Caprese Salad",
+  "source_url": "https://www.foodnetwork.com/recipes/rachael-ray/caprese-salad-recipe-1939232",
+  "host": "foodnetwork.co.uk",
+  "image": "https://food.fnr.sndimg.com/content/dam/images/food/fullset/2003/9/22/0/tm1a35_caprese_salad.jpg.rend.hgtvcom.1280.1280.suffix/1530799984231.webp",
+  "yields": "6 servings",
+  "total_minutes": 10,
+  "prep_minutes": 10,
+  "cook_minutes": null,
+  "ingredients": [
+    "3 vine-ripe tomatoes, 1/4-inch thick slices",
+    "1 pound fresh mozzarella, 1/4-inch thick slices",
+    "20 to 30 leaves (about 1 bunch) fresh basil",
+    "Extra-virgin olive oil, for drizzling",
+    "Coarse salt and pepper"
+  ],
+  "steps": [
+    "Layer alternating slices of tomatoes and mozzarella, adding a basil leaf between each, on a large, shallow platter. Drizzle the salad with extra-virgin olive oil and season with salt and pepper, to taste."
+  ],
+  "author": "Rachael Ray",
+  "cuisine": "italian",
+  "category": "appetizer",
+  "nutrients": {
+    "servingSize": "1 of 6 servings",
+    "calories": "255",
+    "fatContent": "19g",
+    "saturatedFatContent": "11g",
+    "carbohydrateContent": "5g",
+    "fiberContent": "1g",
+    "sugarContent": "2g",
+    "proteinContent": "17g",
+    "cholesterolContent": "60mg",
+    "sodiumContent": "371mg"
+  }
+}

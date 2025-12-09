@@ -1,0 +1,45 @@
+{
+  "title": "Black Bean Salad",
+  "source_url": "https://www.foodnetwork.com/recipes/guy-fieri/black-bean-salad-recipe-1946862",
+  "host": "foodnetwork.co.uk",
+  "image": "https://food.fnr.sndimg.com/content/dam/images/food/fullset/2023/4/04/FN_Guy-Fieri_Black-Bean-Salad_s4x3.jpg.rend.hgtvcom.1280.1280.suffix/1680711014916.webp",
+  "yields": "8 servings",
+  "total_minutes": 70,
+  "prep_minutes": 10,
+  "cook_minutes": null,
+  "ingredients": [
+    "2 cans black beans, drained, about 30 ounces",
+    "1 (15-ounce) can corn, drained",
+    "2 Roma tomatoes, diced",
+    "1/4 cup diced red bell pepper",
+    "1/4 cup diced red onion",
+    "1/4 cup diced green onions",
+    "1/4 cup diced pineapple",
+    "1 tablespoon chopped cilantro leaves",
+    "1 jalapeno, seeded and minced",
+    "4 tablespoons sherry vinegar",
+    "Juice of 1/2 lime",
+    "3 tablespoons honey",
+    "1 tablespoons salt",
+    "1 teaspoon black pepper",
+    "Pinch ground cumin"
+  ],
+  "steps": [
+    "Mix all ingredients in a bowl and refrigerate for 1 hour."
+  ],
+  "author": "Guy Fieri",
+  "cuisine": null,
+  "category": "side-dish",
+  "nutrients": {
+    "servingSize": "1 of 8 servings",
+    "calories": "173",
+    "fatContent": "1g",
+    "saturatedFatContent": "0g",
+    "carbohydrateContent": "35g",
+    "fiberContent": "9g",
+    "sugarContent": "11g",
+    "proteinContent": "8g",
+    "cholesterolContent": "0mg",
+    "sodiumContent": "508mg"
+  }
+}

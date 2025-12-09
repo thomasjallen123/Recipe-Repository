@@ -1,0 +1,42 @@
+{
+  "title": "Peasant Pasta",
+  "source_url": "https://www.foodnetwork.com/recipes/rachael-ray/peasant-pasta-recipe-1940350",
+  "host": "foodnetwork.co.uk",
+  "image": "https://food.fnr.sndimg.com/content/dam/images/food/fullset/2003/10/16/2/tm1b57_peasant_pasta1.jpg.rend.hgtvcom.1280.1280.suffix/1371583061347.webp",
+  "yields": "6 servings",
+  "total_minutes": 20,
+  "prep_minutes": 5,
+  "cook_minutes": 15,
+  "ingredients": [
+    "1 tablespoon extra-virgin olive oil, 1 turn of the pan",
+    "1/2 pound hot Italian sausage, available in bulk at butcher counter or, 2 links, casings removed",
+    "1 pound sweet Italian sausage, available in bulk at butcher counter or, 4 links, casings removed",
+    "3 to 4 cloves garlic, chopped, optional",
+    "1/2 cup chicken or vegetable broth",
+    "1 (28-ounce) can crushed tomatoes",
+    "1/2 cup heavy cream",
+    "Salt and freshly ground black pepper",
+    "1 cup frozen green peas",
+    "24 leaves fresh basil, torn or thinly sliced",
+    "1 pound penne rigate pasta, cooked to al dente",
+    "Grated Italian cheese, for passing"
+  ],
+  "steps": [
+    "Heat a large, deep skillet over medium high heat. Add extra-virgin olive oil, 1 turn of the pan. Add sausage meat. Crumble sausage meat as it browns. Add chopped garlic to the pan. When all of the crumbles have browned evenly, deglaze the pan drippings using chicken or vegetable broth. Stir in crushed tomatoes and bring the sauce up to a bubble, then reduce the heat to a simmer. Stir cream into your sauce, this will blush the color and cut the acidity of the tomatoes. Season with salt and pepper. Stir peas and basil into your sauce to combine. Toss hot drained penne rigate in pan with the sauce, then transfer pasta to serving bowl."
+  ],
+  "author": "Rachael Ray",
+  "cuisine": "italian",
+  "category": "main-dish",
+  "nutrients": {
+    "servingSize": "1 of 6 servings",
+    "calories": "658",
+    "fatContent": "27g",
+    "saturatedFatContent": "11g",
+    "carbohydrateContent": "74g",
+    "fiberContent": "7g",
+    "sugarContent": "10g",
+    "proteinContent": "32g",
+    "cholesterolContent": "71mg",
+    "sodiumContent": "910mg"
+  }
+}

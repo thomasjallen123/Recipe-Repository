@@ -1,0 +1,41 @@
+# Vegetarian Enchiladas
+
+![Recipe image](https://food.fnr.sndimg.com/content/dam/images/food/fullset/2015/11/6/1/FNK_Vegetarian-Enchiladas_s4x3.jpg.rend.hgtvcom.1280.1280.suffix/1447277610191.webp)
+
+- **Source:** foodnetwork.co.uk
+- **URL:** https://www.foodnetwork.com/recipes/food-network-kitchen/vegetarian-enchiladas-3364279
+- **Yields:** 6 servings
+- **Total:** 100 min
+- **Cook:** 35 min
+
+## Ingredients
+
+- 2 tablespoons vegetable oil
+- 1/2 small onion, diced
+- 2 cloves garlic, chopped
+- 2 teaspoons ancho chile powder
+- 1 teaspoon ground cumin
+- Large pinch cayenne pepper
+- One 15-ounce can tomato puree
+- Kosher salt
+- One 10-ounce package frozen chopped spinach, thawed
+- One 15-ounce can pinto beans, strained and rinsed
+- 4 ounces shredded Cheddar (about 1 1/2 cups)
+- 4 ounces shredded pepper Jack cheese (about 1 1/2 cups)
+- 1/2 cup sour cream
+- 3 scallions, sliced
+- Kosher salt
+- Twelve 6-inch corn or flour tortillas
+- Juice of 1/2 a lime
+
+## Steps
+
+1. Preheat the oven to 350 degrees F.
+2. For the sauce: Heat the oil in a large skillet over medium heat. Add the onions, and cook, stirring frequently, until soft and translucent, about 5 minutes. Add the garlic, chile powder, cumin and cayenne, and continue to cook, stirring, until the spices are toasted, about 1 minute. Add 2 cups water, the tomato puree and 1/2 teaspoon salt, and bring to a simmer. Continue cooking until the sauce reduces and thickens slightly (it should be looser and thinner than marinara sauce), 15 to 20 minutes. Set aside to cool slightly.
+3. For the filling: Squeeze all the excess moisture out of the spinach. Put it into a large bowl with the pinto beans, and squeeze with your hands to combine and smash up the beans a little. Add half of both the Cheddar and the pepper Jack, half of both the sour cream and the scallions and 1 1/4 teaspoons salt, and stir to combine.
+4. Spread about 1/2 cup of the tomato sauce in the bottom of a 9-by-13-inch baking dish. Lay the tortillas out on a work surface, and spread 1 side of each with about 1 teaspoon of tomato sauce. Put about 1/4 cup of the filling across the middle of each tortilla. Roll each up, then shingle them in 2 even rows in the baking dish. Pour the remaining sauce over the top of the rolled tortillas, and sprinkle with the remaining cheeses. Cover the baking dish loosely with foil, and bake until the cheeses are melted and the filling is hot, about 30 minutes. Uncover, and continue baking to heat completely through, about 10 minutes more.
+5. For the topping: Whisk together the remaining sour cream, the lime juice and a pinch of salt in a small bowl. Drizzle the mixture over the baked enchiladas, and sprinkle with the remaining scallions.
+
+## Notes
+
+_Add your notes here…_

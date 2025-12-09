@@ -1,0 +1,37 @@
+# Beef With Broccoli
+
+![Recipe image](https://food.fnr.sndimg.com/content/dam/images/food/fullset/2015/8/26/3/WU0802H_Beef-with-Broccoli_s4x3.jpg.rend.hgtvcom.1280.1280.suffix/1547062094033.webp)
+
+- **Source:** foodnetwork.co.uk
+- **URL:** https://www.foodnetwork.com/recipes/ree-drummond/beef-with-broccoli-2495686
+- **Yields:** 4 servings
+- **Total:** 20 min
+- **Cook:** 20 min
+
+## Ingredients
+
+- 1/2 cup low-sodium soy sauce
+- 1/4 cup cornstarch
+- 3 tablespoons sherry
+- 2 tablespoons brown sugar
+- 1 tablespoon minced fresh ginger
+- 2 cloves garlic, minced
+- 1 pound flank steak, trimmed of fat and sliced very thin against the grain
+- 3 tablespoons peanut or olive oil
+- 1 pound broccoli florets
+- 1/4 cup beef broth
+- 1/4 cup oyster sauce
+- Salt as needed (use sparingly)
+- Chow Mein, for serving
+
+## Steps
+
+1. In a bowl, mix together the soy sauce, cornstarch, sherry, brown sugar, ginger and garlic. Pour half the liquid over the sliced meat in a bowl and toss with your hands. Reserve the other half of the liquid and set aside.
+2. Heat the oil in a heavy skillet (iron is best) or wok over high heat. Add the broccoli and stir for a minute. Remove to a plate.
+3. Allow the skillet to get very hot again. With tongs, add the meat in a single layer. Spread out the meat as you add it to skillet, but do not stir for a good minute. (You want the meat to get as brown as possible in as short amount a time as possible.) Turn the meat to the other side and cook for another 30 seconds. Remove to a clean plate.
+4. Pour the reserved sauce into the skillet along with the beef broth and oyster sauce. Cook over high heat until it starts to thicken. Add the beef and broccoli back into the skillet and toss to coat. Season with salt if needed
+5. Serve over Chow Mein.
+
+## Notes
+
+_Add your notes here…_

@@ -1,0 +1,34 @@
+# Roasted Tomato Basil Soup
+
+![Recipe image](https://food.fnr.sndimg.com/content/dam/images/food/fullset/2003/9/29/0/ig1a05_tomato_soup.jpg.rend.hgtvcom.1280.1280.suffix/1485889312843.webp)
+
+- **Source:** foodnetwork.co.uk
+- **URL:** https://www.foodnetwork.com/recipes/ina-garten/roasted-tomato-basil-soup-recipe-1940376
+- **Yields:** 8 servings
+- **Total:** 110 min
+- **Prep:** 15 min
+- **Cook:** 95 min
+
+## Ingredients
+
+- 3 pounds ripe plum tomatoes, cut in half lengthwise
+- 1/4 cup plus 2 tablespoons good olive oil
+- 1 tablespoon kosher salt
+- 1 1/2 teaspoons freshly ground black pepper
+- 2 cups chopped yellow onions (2 onions)
+- 6 garlic cloves, minced
+- 2 tablespoons unsalted butter
+- 1/4 teaspoon crushed red pepper flakes
+- 1 (28-ounce) canned plum tomatoes, with their juice
+- 4 cups fresh basil leaves, packed
+- 1 teaspoon fresh thyme leaves
+- 1 quart chicken stock or water
+
+## Steps
+
+1. Preheat the oven to 400 degrees F. Toss together the tomatoes, 1/4 cup olive oil, salt, and pepper. Spread the tomatoes in 1 layer on a baking sheet and roast for 45 minutes.
+2. In an 8-quart stockpot over medium heat, saute the onions and garlic with 2 tablespoons of olive oil, the butter, and red pepper flakes for 10 minutes, until the onions start to brown. Add the canned tomatoes, basil, thyme, and chicken stock. Add the oven-roasted tomatoes, including the liquid on the baking sheet. Bring to a boil and simmer uncovered for 40 minutes. Pass through a food mill fitted with the coarsest blade. Taste for seasonings. Serve hot or cold.
+
+## Notes
+
+_Add your notes here…_

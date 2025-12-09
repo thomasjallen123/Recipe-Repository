@@ -1,0 +1,44 @@
+# Vegetarian Lasagna
+
+![Recipe image](https://food.fnr.sndimg.com/content/dam/images/food/fullset/2015/11/6/1/FNK_Vegetarian-Lasagna_s4x3.jpg.rend.hgtvcom.1280.1280.suffix/1447277613042.webp)
+
+- **Source:** foodnetwork.co.uk
+- **URL:** https://www.foodnetwork.com/recipes/food-network-kitchen/vegetarian-lasagna-3364145
+- **Yields:** 8 servings
+- **Total:** 200 min
+- **Cook:** 75 min
+
+## Ingredients
+
+- 1/3 cup olive oil
+- 4 large cloves garlic, thinly sliced
+- 1 medium onion, chopped
+- Kosher salt
+- 1 large carrot, shredded on the large holes of a box grater
+- 2 tablespoons tomato paste
+- 1/4 teaspoon crushed red pepper flakes
+- Two 28-ounce cans plum tomatoes, crushed by hand
+- 2 bay leaves
+- 1 large sprig basil; plus 1/4 cup leaves, coarsely chopped
+- 1 large sprig thyme
+- One 10-ounce box frozen chopped spinach, thawed
+- 1 pound ricotta cheese
+- 3/4 cup grated Parmesan
+- 1 large egg
+- Kosher salt
+- 1/4 teaspoon freshly grated nutmeg
+- 12 no-boil lasagna noodles
+- 1 pound shredded low-moisture whole-milk mozzarella (4 cups)
+- Cooking spray
+
+## Steps
+
+1. For the sauce: Put the olive oil and garlic in a medium pot over low heat. Cook the garlic, stirring occasionally at first and more often as it colors, until golden brown, about 7 minutes. Raise the heat to medium-low, add the onions and a large pinch of salt and cook, stirring occasionally, until the onions are softened, about 5 minutes. Add the carrots, and cook, stirring occasionally, until softened, about 5 minutes. Add the tomato paste and red pepper flakes, and cook, stirring constantly, for 2 minutes. Add the tomatoes, bay leaves, basil sprig, thyme and 1 teaspoon salt, raise the heat to medium and bring the sauce to a lively simmer. Continue to cook, stirring frequently, until quite thick (if you draw a spoon through the sauce, you'll see the bottom of the pot for a few seconds before the sauce fills back in), about 30 minutes. As the sauce thickens, turn the heat down a bit so the bottom doesn't scorch. Stir in the chopped basil. Let cool to room temperature before assembling the lasagna. (Makes 1 quart.)
+2. To assemble: Preheat the oven to 350 degrees F. Squeeze the spinach in your hands to remove as much liquid as possible. Put it in a large bowl, and stir in the ricotta, 1/2 cup of the Parmesan, the egg, 1 teaspoon salt and the nutmeg.
+3. Spread 3/4 cup of the tomato sauce on the bottom of a 9-by-13-inch baking dish. Lay 3 lasagna noodles across the sauce (they won't touch). Spread 3/4 cup tomato sauce on top. Dollop 1/3 of the ricotta mixture (about 1 cup) across the sauce, and use the back of a spoon to spread it (it will smush into the tomato sauce, which is fine). Scatter 1 cup of the mozzarella on top.
+4. Repeat the layering 2 more times. Top with the last 3 noodles, spread the last 3/4 cup tomato sauce over them and scatter the remaining 1 cup mozzarella and 1/4 cup Parmesan over the top. Spray a large piece of foil with cooking spray, and cover the baking dish.
+5. Bake until the noodles are soft and the cheese has melted, about 40 minutes. Remove the foil, and continue to bake until the cheese is bubbling and the lasagna is slightly browned around the edges, about 15 minutes more. Let rest 10 minutes before serving.
+
+## Notes
+
+_Add your notes here…_

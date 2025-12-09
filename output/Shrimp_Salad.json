@@ -1,0 +1,41 @@
+{
+  "title": "Shrimp Salad",
+  "source_url": "https://www.foodnetwork.com/recipes/ina-garten/shrimp-salad-recipe-1940192",
+  "host": "foodnetwork.co.uk",
+  "image": "https://food.fnr.sndimg.com/content/dam/images/food/fullset/2003/9/29/0/ig1a08_shrimp_salad.jpg.rend.hgtvcom.1280.1280.suffix/1371582596200.webp",
+  "yields": "12 servings",
+  "total_minutes": 30,
+  "prep_minutes": 20,
+  "cook_minutes": 10,
+  "ingredients": [
+    "3 tablespoons plus 1 teaspoon kosher salt",
+    "1 lemon cut into quarters",
+    "4 pounds large shrimp in the shell (16 to 20 shrimp per pound)",
+    "2 cups good mayonnaise",
+    "1 teaspoon Dijon mustard",
+    "2 tablespoons white wine or white wine vinegar",
+    "1 teaspoon freshly ground black pepper",
+    "6 tablespoons minced fresh dill",
+    "1 cup minced red onion (1 onion)",
+    "3 cups minced celery (6 stalks)"
+  ],
+  "steps": [
+    "Bring 5 quarts of water, 3 tablespoons salt, and the lemon to a boil in a large saucepan. Add half the shrimp and reduce the heat to medium. Cook uncovered for only 3 minutes or until the shrimp are barely cooked through. Remove with a slotted spoon to a bowl of cold water. Bring the water back to a boil and repeat with the remaining shrimp. Let cool; then peel, and devein the shrimp.",
+    "In a separate bowl, whisk together the mayonnaise, mustard, wine or vinegar, 1 teaspoon salt, pepper, and dill. Combine with the peeled shrimp. Add the red onion and celery and check the seasonings. Serve or cover and refrigerate for a few hours."
+  ],
+  "author": "Ina Garten",
+  "cuisine": null,
+  "category": "main-dish",
+  "nutrients": {
+    "servingSize": "1 of 12 servings",
+    "calories": "407",
+    "fatContent": "31g",
+    "saturatedFatContent": "5g",
+    "carbohydrateContent": "2g",
+    "fiberContent": "1g",
+    "sugarContent": "1g",
+    "proteinContent": "31g",
+    "cholesterolContent": "258mg",
+    "sodiumContent": "536mg"
+  }
+}

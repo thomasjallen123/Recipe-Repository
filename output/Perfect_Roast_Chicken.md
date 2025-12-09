@@ -1,0 +1,34 @@
+# Perfect Roast Chicken
+
+![Recipe image](https://food.fnr.sndimg.com/content/dam/images/food/fullset/2011/11/23/0/FN_perfect-chicken-014_s4x3.jpg.rend.hgtvcom.1280.1280.suffix/1384540895467.webp)
+
+- **Source:** foodnetwork.co.uk
+- **URL:** https://www.foodnetwork.com/recipes/ina-garten/perfect-roast-chicken-recipe-1940592
+- **Yields:** 8 servings
+- **Total:** 130 min
+- **Prep:** 20 min
+- **Cook:** 90 min
+
+## Ingredients
+
+- 1 (5 to 6 pound) roasting chicken
+- Kosher salt
+- Freshly ground black pepper
+- 1 large bunch fresh thyme, plus 20 sprigs
+- 1 lemon, halved
+- 1 head garlic, cut in half crosswise
+- 2 tablespoons (1/4 stick) butter, melted
+- 1 large yellow onion, thickly sliced
+- 4 carrots cut into 2-inch chunks
+- 1 bulb of fennel, tops removed, and cut into wedges
+- Olive oil
+
+## Steps
+
+1. Preheat the oven to 425 degrees F.
+2. Remove the chicken giblets. Rinse the chicken inside and out. Remove any excess fat and leftover pin feathers and pat the outside dry. Liberally salt and pepper the inside of the chicken. Stuff the cavity with the bunch of thyme, both halves of lemon, and all the garlic. Brush the outside of the chicken with the butter and sprinkle again with salt and pepper. Tie the legs together with kitchen string and tuck the wing tips under the body of the chicken. Place the onions, carrots, and fennel in a roasting pan. Toss with salt, pepper, 20 sprigs of thyme, and olive oil. Spread around the bottom of the roasting pan and place the chicken on top.
+3. Roast the chicken for 1 1/2 hours, or until the juices run clear when you cut between a leg and thigh. Remove the chicken and vegetables to a platter and cover with aluminum foil for about 20 minutes. Slice the chicken onto a platter and serve it with the vegetables.
+
+## Notes
+
+_Add your notes here…_
