@@ -2,6 +2,7 @@
 import json
 from datetime import datetime
 from pathlib import Path
+import os
 
 from app import create_app, db
 from app.models import Recipe, Ingredient, Instruction
@@ -9,7 +10,7 @@ from app.models import Recipe, Ingredient, Instruction
 app = create_app()
 
 # FIXED: Render clones to /app/backend → output folder is at /app/output
-SCRAPER_OUTPUT_DIR = Path(__file__).resolve().parent.parent / "output"
+SCRAPER_OUTPUT_DIR = Path(os.environ.get('RENDER_ROOT', '/opt/render/project/src')) / "output"
 SCRAPER_OUTPUT_DIR.mkdir(exist_ok=True)
 
 def get_scraped_json_files():
